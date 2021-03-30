@@ -1,6 +1,4 @@
 import { FC, useEffect, useRef, useState } from 'react';
-import { nonNullable } from 'next/dist/lib/non-nullable';
-import { Space } from '@babylonjs/core';
 
 type ColorTriplet = [number, number, number];
 const CIELAB_A = [-86.185, 98.254];
@@ -79,7 +77,7 @@ class SpaceWalker {
 }
 
 const ColoredBackground: FC<any> = (props: any) => {
-  const [color, setColor] = useState<string>('');
+  const [color, setColor] = useState<string>('#ffffff');
 
   const animationRequestRef = useRef<number>();
   const prevTimeRef = useRef<number>();
