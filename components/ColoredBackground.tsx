@@ -46,7 +46,8 @@ class SpaceWalker {
   maxValue: number;
   startValue!: number;
   stopValue: number;
-  duration!: number;
+  active_duration!: number;
+  sleep_duration!: number;
   current!: number;
 
   constructor(minValue: number, maxValue: number) {
@@ -57,21 +58,25 @@ class SpaceWalker {
   }
 
   isDone(): boolean {
-    return this.current >= this.duration;
+    return this.current >= (this.active_duration + this.sleep_duration);
   }
 
   step(time: number) {
-    this.current = Math.min(this.current + time, this.duration);
+    this.current += time;
   }
 
   value(): number {
-    return (this.current / this.duration) * (this.stopValue - this.startValue) + this.startValue;
+    if (this.current >= this.active_duration) {
+      return this.stopValue;
+    }
+    return (this.current / this.active_duration) * (this.stopValue - this.startValue) + this.startValue;
   }
 
   next() {
     this.startValue = this.stopValue;
     this.stopValue = easeInOutExpo(Math.random()) * (this.maxValue - this.minValue) + this.minValue;
-    this.duration = Math.random() * 2000 + 5000;
+    this.active_duration = 2000;
+    this.sleep_duration = 3000;
     this.current = 0;
   }
 }
@@ -80,26 +85,26 @@ const ColoredBackground: FC<any> = (props: any) => {
   const [color, setColor] = useState<string>('#ffffff');
 
   const animationRequestRef = useRef<number>();
-  const prevTimeRef = useRef<number>();
+  const prevTimeRef = useRef<number>(0);
+
   const colorSpaceWalkerA = useRef<SpaceWalker>(new SpaceWalker(CIELAB_A[0], CIELAB_A[1]));
   const colorSpaceWalkerB = useRef<SpaceWalker>(new SpaceWalker(CIELAB_B[0], CIELAB_B[1]));
 
   const animateColor = (time: number) => {
-    if (prevTimeRef.current !== undefined) {
-      const delta = time - prevTimeRef.current;
-      colorSpaceWalkerA.current.step(delta);
-      colorSpaceWalkerB.current.step(delta);
+    const delta = time - prevTimeRef.current;
+    colorSpaceWalkerA.current.step(delta);
+    colorSpaceWalkerB.current.step(delta);
 
-      const rgb = cielab2rgb([100, colorSpaceWalkerA.current.value(), colorSpaceWalkerB.current.value()]);
-      setColor(`rgb(${rgb[0].toFixed(0)}, ${rgb[1].toFixed(0)}, ${rgb[2].toFixed(0)})`);
+    const rgb = cielab2rgb([100, colorSpaceWalkerA.current.value(), colorSpaceWalkerB.current.value()]);
+    setColor(`rgb(${rgb[0].toFixed(0)}, ${rgb[1].toFixed(0)}, ${rgb[2].toFixed(0)})`);
 
-      if (colorSpaceWalkerA.current.isDone()) {
-        colorSpaceWalkerA.current.next();
-      }
-      if (colorSpaceWalkerB.current.isDone()) {
-        colorSpaceWalkerB.current.next();
-      }
+    if (colorSpaceWalkerA.current.isDone()) {
+      colorSpaceWalkerA.current.next();
     }
+    if (colorSpaceWalkerB.current.isDone()) {
+      colorSpaceWalkerB.current.next();
+    }
+
     prevTimeRef.current = time;
     animationRequestRef.current = requestAnimationFrame(animateColor);
   };
