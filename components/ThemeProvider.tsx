@@ -8,13 +8,17 @@ export enum ThemeMode {
 
 export type ThemeContextType = {
   theme: ThemeMode,
+  resultTheme: ThemeMode.light | ThemeMode.dark
   setTheme: (theme: ThemeMode) => void,
 }
 
-export const ThemeContext = createContext<ThemeContextType | null>(null);
+export const ThemeContext = createContext<ThemeContextType>({
+  theme: ThemeMode.system, resultTheme: ThemeMode.light, setTheme: () => ({}),
+});
 
 export const ThemeProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
   const [themeState, setThemeState] = useState(ThemeMode.system);
+  const [resultTheme, setResultTheme] = useState<ThemeMode.light | ThemeMode.dark>(ThemeMode.light);
 
   // Load initial theme preference from localstorage
   useEffect(() => {
@@ -33,9 +37,22 @@ export const ThemeProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
       isDarkThemeMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
 
+    setResultTheme(isDarkThemeMode ? ThemeMode.dark : ThemeMode.light);
+
     root.classList.remove(isDarkThemeMode ? 'light' : 'dark');
     root.classList.add(isDarkThemeMode ? 'dark' : 'light');
   };
+
+  // Listen to system theme state changes
+  useEffect(() => {
+    const listener = () => {
+      applyTheme(themeState);
+    };
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', listener);
+    return (() => {
+      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', listener);
+    });
+  }, []);
 
   useEffect(
     () => {
@@ -51,7 +68,7 @@ export const ThemeProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
     window.localStorage.setItem('theme-preference', theme);
   };
 
-  return (<ThemeContext.Provider value={{ theme: themeState, setTheme }}>
+  return (<ThemeContext.Provider value={{ theme: themeState, resultTheme, setTheme }}>
     {children}
   </ThemeContext.Provider>);
 };
