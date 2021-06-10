@@ -4,13 +4,29 @@ Thanks to all these amazing projects for making our lives easier. The least I ca
 
 Babylon.js, licensed under Apache License 2.0, https://github.com/BabylonJS/Babylon.js/blob/master/license.md.
 
+headlessui, licensed under MIT, https://github.com/tailwindlabs/headlessui/blob/main/LICENSE.
+
+heroicons, licensed under MIT, https://github.com/tailwindlabs/heroicons/blob/master/LICENSE.
+
+KaTeX, licensed under MIT, https://github.com/KaTeX/KaTeX/blob/master/LICENSE.
+
 next.js, licensed under MIT, https://github.com/vercel/next.js/blob/canary/license.md.
 
+next-mdx-remote, licensed under Mozilla Public License 2.0, https://github.com/hashicorp/next-mdx-remote/blob/main/LICENSE.
+
 postcss, licensed under MIT, https://github.com/postcss/postcss/blob/main/LICENSE.
+
+prism, licensed under MIT, https://github.com/PrismJS/prism/blob/master/LICENSE.
+
+prism-react-renderer, licensed under MIT, https://github.com/FormidableLabs/prism-react-renderer/blob/master/LICENSE.
 
 react, licensed under MIT, https://github.com/facebook/react/blob/master/LICENSE.
 
 react-babylonjs, licensed under MIT, https://github.com/brianzinn/react-babylonjs/blob/master/LICENSE.
+
+rehype ecosystem, licensed under MIT, https://github.com/rehypejs/rehype/blob/main/license.
+
+remark ecosystem, licensed under MIT, https://github.com/remarkjs/remark/blob/main/license.
 
 RGB-LAB, licensed under MIT, https://github.com/antimatter15/rgb-lab/blob/master/LICENSE.
 
@@ -19,6 +35,8 @@ Roboto Condensed, licensed under Apache License 2.0, https://fonts.google.com/sp
 sass, licensed under MIT, https://github.com/sass/dart-sass/blob/master/LICENSE.
 
 Sriracha, licensed under OFL, https://fonts.google.com/specimen/Sriracha#license.
+
+tail-kit, license under MIT, https://github.com/Charlie85270/tail-kit/blob/main/LICENCE.md.
 
 tailwindcss, licensed under MIT, https://github.com/tailwindlabs/tailwindcss/blob/master/LICENSE.
 
