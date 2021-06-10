@@ -6,7 +6,7 @@ import { BackgroundColor, PopupBackground } from '../../components/blog/Backgrou
 import { ThemeProvider } from '../../components/ThemeProvider';
 import { getFormattedPostAuthors, getPostBySlug } from '../../lib/blog';
 import { PostData, posts_data, PostType } from '../../lib/posts_data';
-import { readFile } from 'fs/promises';
+import { readFile } from 'fs';
 import { join } from 'path';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
@@ -117,7 +117,18 @@ export const getStaticProps: GetStaticProps<BlogPostProps, Params> = async ({ pa
     throw new Error('Only HTML and Markdown PostType needs to be rendered.');
   }
 
-  const file_content = await readFile(join(process.cwd(), post.source)).then(buf => buf.toString());
+  const readFileContent = (): Promise<Buffer> => {
+    return new Promise((resolve, reject) => {
+      readFile(join(process.cwd(), post.source), (err, data) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(data);
+      });
+    });
+  };
+
+  const file_content = await readFileContent().then(buf => buf.toString());
 
   return {
     props: {
