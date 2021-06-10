@@ -1,7 +1,8 @@
 import '../styles/globals.css';
 import Head from 'next/head';
-import App, { AppProps } from 'next/app';
+import type { AppProps } from 'next/app';
 import { FC } from 'react';
+import '../fonts/style.css';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return <>
