@@ -60,11 +60,11 @@ const Home: FC = () => {
         `}</style>
         <h1 className='font-handwriting text-6xl'>Jirawut Thongraar</h1>
 
-        <a className='mt-8 flex font-handwriting text-3xl transition-colors duration-300 hover:text-blue-400'
+        {/* <a className='mt-8 flex font-handwriting text-3xl transition-colors duration-300 hover:text-blue-400'
            href='/blog'>
           <p className='bounce-arrow'>&gt;&gt;</p>
           <h2 className='ml-1 underline'>Visit My Blog</h2>
-        </a>
+        </a> */}
 
         <h2 className='mt-8 font-handwriting text-3xl'>Contacts</h2>
         <ul className='mt-2 list-disc space-y-1 text-xl'>
