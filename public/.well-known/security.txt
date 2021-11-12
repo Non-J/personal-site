@@ -1,0 +1,30 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+# Feel free to contact me if you have found a bug
+# For more details, see disclosure policy
+# Thanks
+
+Contact: mailto: security@jirawut.com
+Contact: https://www.facebook.com/jirawut.thongraar
+Encryption: https://jirawut.com/pgp-public-disclosure.txt
+Preferred-Languages: en, th
+Canonical: https://jirawut.com/.well-known/security.txt
+Policy: https://jirawut.com/disclosure-policy
+-----BEGIN PGP SIGNATURE-----
+
+iQJJBAEBAgAzFiEELCFta4duWvUmPtDHur0DbWtEMa8FAmGN+8MVHHNlY3VyaXR5
+QGppcmF3dXQuY29tAAoJELq9A21rRDGvDBsP/imGSRt/RVGTnZ3Be2SqmvAb+5J7
+gdn72/k8kUP0F9+E5EpfM7QMOMm0GbWlDes2a8TR9sXXbN5Bltvq30p99immKC+G
+b9lzfLiLX3lFqzzmm30o0jjl+pGrNq1bmoz5kwlUP76VfInilQ2RmSvBA0iy/+CD
+2Rlqy4/c3BtfRaTJNnhnB4i8VuAU4sQjeSoJdLFsplK3Ssj9j8jmqEvRflXrIdKi
+ITbbL+wf4IdfbSHGfcIKpJoDpqdqTvplSj2+CZkZVY+zJBOVFUECsoPIax1WPEkn
+w8KrGRAhr1bXUfMPQmSvVNRA4eORwDVPGWBRzEinmJstU345vdEe3uM/xX6MO2sp
+B6mJ9vDFCNKcCxn+9BxYpjdguolToM+FAImddB01WAUINkDxYdsgEXSNGuZBac9a
+pCZLYi3reMdEoTHYmcX7K2/za3AoOSCTmrbUqq8mfCF5VlfIHgs5KP+3LiGeg0sm
++HDbYbulBlWmXU+DGLW1pq/ObidN3k8V5Q5/lCPohMJz09lzaaOZ/LN0keo131sA
+F1nciornlS4UJCVT0o2HohlY/guQc6KUX8UidiF34Gi2dLBd+CVGNW/XreKmCrMU
+bw+3Bw56PXkBZ32uM3w4mM2bubuHJFPpp0BckmKi6t7NEfntfIGd0VW17w3PJCmS
+hVqOhejaHEbXSwGQ
+=Oe/A
+-----END PGP SIGNATURE-----

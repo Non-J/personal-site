@@ -1,0 +1,150 @@
+---
+import HeadMetadata from '../components/HeadMetadata.astro';
+import '../styles/tailwind.css';
+---
+
+<html lang="en">
+  <head>
+    <HeadMetadata title="Disclosure Policy" />
+  </head>
+  <body>
+    <nav class="w-center-column pt-8">
+      <a class="underline text-link" href="/">[ Homepage ]</a>
+    </nav>
+
+    <main
+      class="w-center-column py-12 prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl"
+    >
+      <h1>Disclosure Policy</h1>
+
+      <p>
+        First of all, I would like to sincerely thank you for your responsible
+        disclosure. We all make mistakes; after all, we are merely humans. While
+        I cannot promise I will respond to all queries, I will try my best.
+      </p>
+
+      <h2>Contact</h2>
+
+      <p>
+        Please submit detailed reports, reproduction steps, and proof-of-concept
+        code/pictures/video (if you have them). The report should preferably be
+        in plaintext, and the reproduction step should be clear and noob
+        friendly (because I am one). Theoretical attacks (no reproduction steps)
+        can also be submitted, but I won't be able to act upon them if I don't
+        understand them.
+      </p>
+      <p>
+        You can send an email to
+        <a href="mailto:security@jirawut.com" class="underline">
+          security@jirawut.com
+        </a>
+        <br />
+        If you are going to send an email, please encrypt and sign them so that
+        I know it is not a spam. My PGP key is avaliable at
+        <a
+          href="https://jirawut.com/pgp-public-disclosure.txt"
+          class="underline"
+        >
+          https://jirawut.com/pgp-public-disclosure.txt</a
+        >. Other contacts are also listed on the homepage, feel free to use any
+        of them.
+      </p>
+
+      <h2>Scope</h2>
+
+      <ul role="list">
+        <li>
+          Services hosted under jirawut.com (including subdomains)
+          <ul role="list">
+            <li
+              >Authentication and Access Control (Priviledge Escalation,
+              Incorrect Session Handling, etc.)
+            </li>
+            <li
+              >Server-side Exploits (SQL Injection, SSRF, HTTP Desync/Request
+              Smuggling, Remote Code Execution/Sandbox Escape, etc.)
+            </li>
+            <li>Client-side Exploits (XSS, CSRF, etc.)</li>
+            <li
+              >Bad Input Escaping (CSV/Microsoft Excel Injection, ZIP bomb,
+              etc.)
+            </li>
+            <li
+              >Application-level Denial of Service (Slow Loris Attack, etc.)
+            </li>
+          </ul>
+        </li>
+        <li
+          >Third-party Sevices (e.g., Social media accounts, GitHub, etc.)
+          <ul role="list">
+            <li>Leaked credentials or keys</li>
+            <li
+              >Legally liable materials (including both civil and criminal law)
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h2>Out of Scope</h2>
+
+      <p>These are deemed as acceptable risks.</p>
+      <ul role="list">
+        <li
+          >Nice-to-have HTTP headers with marginal gain (HSTS, X-XSS-Protection,
+          etc.)
+        </li>
+        <li
+          >Attacks requiring large network traffic (Brute Force Attacks,
+          Network-level Denial of Service, etc.)
+        </li>
+        <li
+          >Attacks enabled by outdated client-side software or plugins (Internet
+          Explorer, Unpatched Browsers, etc.)
+        </li>
+        <li
+          >Non-sensitive information disclosure (Username, Source Code, Server
+          Version Header, etc.)
+        </li>
+        <li
+          >Social engineering or physical-based attacks (Phishing,
+          <a href="https://xkcd.com/538" class="underline"
+            >https://xkcd.com/538</a
+          >, etc.)
+        </li>
+      </ul>
+
+      <h2>Rules</h2>
+
+      <p>
+        Please don't disclose the problem elsewhere until it is confirmed to be
+        fixed. Disclose the vulnerbility in a timely manner. Do not use
+        techniques that may cause irreparable harm. Once the vulnerability has
+        been found, do not escalate further; this includes but not limited to:
+        exfiltrating data, establishing persistence backdoor, using the service
+        as a pivot, etc. If a service offers account registration, use your own
+        account or register a new test account. Do not access data of other
+        account that isn't yours.
+      </p>
+
+      <h2>Rewards</h2>
+
+      <p>
+        I'm sorry but there's no reward. Maybe we can go out for a drink?
+      </p>
+
+      <h2>Legal Stuff</h2>
+
+      <p>
+        I promise that I won't initiate legal action as long as you responsibly
+        disclose your findings according to this policy in good faith. I'm not a
+        lawyer so it's not like I can do that anyway.
+      </p>
+
+      <p>
+        Thank you for making the internet a little safer!
+        <br />
+        Last updated: 2021-11-12
+      </p>
+    </main>
+  </body>
+</html>

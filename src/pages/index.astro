@@ -1,0 +1,61 @@
+---
+import HeadMetadata from '../components/HeadMetadata.astro';
+import '../styles/tailwind.css';
+
+const Button = ({ href, text }) => 
+  <a href={href} class="bg-indigo-800 hover:bg-indigo-900 ring-0 hover:ring-4 ring-indigo-900 ring-opacity-50 transition duration-200 mt-3 py-4 text-center font-medium rounded-full">
+    {text}
+  </a>;
+
+const ButtonDisabled = ({ text }) => 
+  <a href="#" class="bg-indigo-700 text-slate-300 mt-3 py-4 text-center font-medium rounded-full" style="pointer-events: none; cursor: default;">
+    {text}
+  </a>;
+---
+
+<html lang="en">
+  <head>
+    <HeadMetadata title="Non's Homepage" />
+    <style>
+      .name {
+        font-size: 2.5em;
+        line-height: 1.225em;
+        font-weight: 600;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body class="w-center-column text-autoscale min-h-screen flex flex-col">
+    <main class="flex-grow py-12 flex justify-center items-center">
+      <!-- Center Card -->
+      <div class="max-w-screen-md w-full h-full overflow-hidden rounded-xl shadow-2xl text-neutral-100 bg-indigo-600 flex flex-col justify-center p-6">
+        <h1 class="name pb-10">Non (Jirawut)</h1>
+
+        <p class="mb-7">Hi! I'm a sleep-deprived college student who made the mistake of taking CS instead of anything else that is fun. I make mostly full-stack applications (that no one uses). I am also interested in concurrency and computer security, or at least that's what I say until I find something else more interesting and fun.</p>
+
+        <ButtonDisabled text="Blog (Coming Soon?)"/>
+        <Button href="mailto:hello@jirawut.com" text="Email"/>
+        <Button href="https://www.facebook.com/jirawut.thongraar" text="Facebook"/>
+        <Button href="https://www.instagram.com/nnon_jt" text="Instagram"/>
+        <Button href="https://www.github.com/Non-J" text="GitHub"/>
+      </div>
+      <!-- End of Center Card -->
+    </main>
+
+    <footer class="flex-none flex flex-col md:flex-row">
+      <span class="font-light flex-auto">
+        Made from ❤ and open-source libraries. Visit the repository for source
+        code and third-party license notices.
+      </span>
+      <nav class="pb-8 flex flex-col items-end">
+        <a
+          class="text-link w-max flex-none"
+          href="https://github.com/Non-J/personal-site">[ Repository ]</a
+        >
+        <a class="text-link w-max flex-none" href="/disclosure-policy"
+          >[ Vulnerability Disclosure Policy ]</a
+        >
+      </nav>
+    </footer>
+  </body>
+</html>
