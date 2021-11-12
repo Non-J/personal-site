@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && cp -r public/.well-known dist/.well-known",
     "preview": "astro preview"
   },
   "devDependencies": {
