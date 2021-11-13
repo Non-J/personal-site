@@ -1,0 +1,12 @@
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+/*
+  X-Frame-Options deny
+  X-Content-Type-Options: nosniff
+  X-Permitted-Cross-Domain-Policies: none
+  Referrer-Policy: no-referrer
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' static.cloudflareinsights.com; style-src 'report-sample' 'self' 'unsafe-inline'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none';
