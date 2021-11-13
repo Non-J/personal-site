@@ -7,12 +7,12 @@ https://:project.pages.dev/*
   Cross-Origin-Opener-Policy: same-origin
   Referrer-Policy: no-referrer
   
-/
+/index.html
   X-Frame-Options deny
   Cross-Origin-Embedder-Policy: require-corp
-  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' static.cloudflareinsights.com; style-src 'report-sample' 'self'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
+  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' static.cloudflareinsights.com; style-src 'report-sample' 'self' 'unsafe-inline'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
 
 /disclosure-policy/*
   X-Frame-Options deny
   Cross-Origin-Embedder-Policy: require-corp
-  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' static.cloudflareinsights.com; style-src 'report-sample' 'self'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
+  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' static.cloudflareinsights.com; style-src 'report-sample' 'self' 'unsafe-inline'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
