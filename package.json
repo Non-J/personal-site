@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && cp -r public/.well-known dist/.well-known",
+    "build": "astro build && sh ./post-build.sh",
     "preview": "astro preview"
   },
   "devDependencies": {
@@ -11,6 +11,8 @@
     "@tailwindcss/typography": "next",
     "astro": "^0.20.12",
     "autoprefixer": "^10.4.0",
+    "html-minifier-terser": "^6.0.2",
+    "prettier": "^2.4.1",
     "prettier-plugin-astro": "^0.0.10",
     "tailwindcss": "next"
   }

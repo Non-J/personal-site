@@ -7,6 +7,7 @@ export default /** @type {import('astro').AstroUserConfig} */ {
   buildOptions: {
     site: 'http://jirawut.com/',
     sitemap: true,
+    pageUrlFormat: 'file',
   },
   devOptions: {
     port: 3000,
