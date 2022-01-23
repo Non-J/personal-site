@@ -1,24 +1,8 @@
 ---
 import HeadMetadata from '../components/HeadMetadata.astro';
+import Button from '../components/index/Button.astro';
+import ButtonDisabled from '../components/index/ButtonDisabled.astro';
 import '../styles/tailwind.css';
-
-const Button = ({ href, text }) => (
-  <a
-    href={href}
-    class='bg-indigo-800 hover:bg-indigo-900 ring-0 hover:ring-4 ring-indigo-900 ring-opacity-50 transition duration-200 mt-3 py-4 text-center font-medium rounded-full'
-  >
-    {text}
-  </a>
-);
-
-const ButtonDisabled = ({ text }) => (
-  <a
-    href='#'
-    class='bg-indigo-700 text-slate-300 mt-3 py-4 text-center font-medium rounded-full pointer-events-none cursor-default'
-  >
-    {text}
-  </a>
-);
 ---
 
 <html lang="en">
