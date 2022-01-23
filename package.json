@@ -4,7 +4,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build && sh ./post-build.sh",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "format": "prettier -w ."
   },
   "devDependencies": {
     "@astrojs/renderer-solid": "^0.3.1",
