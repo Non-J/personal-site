@@ -7,13 +7,13 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/renderer-solid": "^0.1.1",
+    "@astrojs/renderer-solid": "^0.3.1",
     "@tailwindcss/typography": "next",
-    "astro": "^0.20.12",
-    "autoprefixer": "^10.4.0",
-    "html-minifier-terser": "^6.0.2",
-    "prettier": "^2.4.1",
-    "prettier-plugin-astro": "^0.0.10",
+    "astro": "^0.22.17",
+    "autoprefixer": "^10.4.2",
+    "html-minifier-terser": "^6.1.0",
+    "prettier": "^2.5.1",
+    "prettier-plugin-astro": "^0.0.12",
     "tailwindcss": "next"
   }
 }
