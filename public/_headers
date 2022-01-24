@@ -8,4 +8,4 @@ https://:project.pages.dev/*
   Cross-Origin-Embedder-Policy: require-corp
   Cross-Origin-Opener-Policy: same-origin
   Referrer-Policy: no-referrer
-  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' static.cloudflareinsights.com; style-src 'report-sample' 'self' 'unsafe-inline'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
+  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' 'unsafe-inline' static.cloudflareinsights.com; style-src 'report-sample' 'self' 'unsafe-inline'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
