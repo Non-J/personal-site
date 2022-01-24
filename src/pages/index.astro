@@ -3,12 +3,14 @@ import HeadMetadata from '../components/HeadMetadata.astro';
 import Button from '../components/index/Button.astro';
 import ButtonDisabled from '../components/index/ButtonDisabled.astro';
 import Interests from '../components/index/Interests.tsx';
-import '../styles/tailwind.css';
 ---
 
 <html lang="en">
   <head>
     <HeadMetadata title="Non's Homepage" />
+    <style global>
+      @import '../styles/tailwind.css';
+    </style>
     <style>
       .name {
         font-size: 2.5em;
@@ -34,8 +36,8 @@ import '../styles/tailwind.css';
           make mostly web applications (that no one uses). I am interested in
           concurrent programming and computer security. And as with most people
           in this field, I am an introvert with severe social anxiety. Please
-          understand if I have a hard time speaking to you. Regardless, feel free
-          to get in touch using the contacts below.
+          understand if I have a hard time speaking to you. Regardless, feel
+          free to get in touch using the contacts below.
         </p>
 
         <p class="mb-7">Languages: EN, TH. Learning: KR.</p>
