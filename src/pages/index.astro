@@ -2,6 +2,7 @@
 import HeadMetadata from '../components/HeadMetadata.astro';
 import Button from '../components/index/Button.astro';
 import ButtonDisabled from '../components/index/ButtonDisabled.astro';
+import Interests from '../components/index/Interests.tsx';
 import '../styles/tailwind.css';
 ---
 
@@ -22,28 +23,37 @@ import '../styles/tailwind.css';
       <div
         class="max-w-screen-md w-full h-full overflow-hidden rounded-xl shadow-2xl text-neutral-100 bg-indigo-600 flex flex-col justify-center p-6"
       >
-        <h1 class="name pb-10">Non (Jirawut)</h1>
+        <h1 class="name pb-2">Non (Jirawut)</h1>
+
+        <div class="mb-7">
+          <Interests client:load />
+        </div>
 
         <p class="mb-7">
-          Hi! I'm a sleep-deprived college student who made the mistake of
-          taking CS instead of anything else that is fun. I make mostly
-          full-stack applications (that no one uses). I am also interested in
-          concurrency and computer security, or at least that's what I say until
-          I find something else more interesting and fun.
+          Hi! I'm a sleep-deprived college student studying CS (big mistake). I
+          make mostly web applications (that no one uses). I am interested in
+          concurrent programming and computer security. And as with most people
+          in this field, I am an introvert with severe social anxiety. Please
+          understand if I have a hard time speaking to you. Regardless, feel free
+          to get in touch using the contacts below.
         </p>
 
-        <ButtonDisabled text="Blog (Coming Soon?)" />
-        <Button href="mailto:hello@jirawut.com" text="Email" />
+        <p class="mb-7">Languages: EN, TH. Learning: KR.</p>
+
+        <!-- <ButtonDisabled text="Blog (Coming Soon?)" /> -->
+        <Button href="mailto:hello@jirawut.com" text="Email (hello@jirawut.com)"
+        />
         <Button
           href="https://www.facebook.com/jirawut.thongraar"
           text="Facebook"
         />
         <Button href="https://www.instagram.com/nnon_jt" text="Instagram" />
         <Button href="https://www.github.com/Non-J" text="GitHub" />
+        <Button href="https://dn.kakao.com" text="Kakao (ID: jirawut)" />
       </div>
     </main>
 
-    <footer class="flex-none flex flex-col md:flex-row">
+    <footer class="flex-none flex flex-col md:flex-row my-6">
       <span class="font-light flex-auto">
         Made from ❤ and open-source libraries. Visit the repository for source
         code and third-party license notices.
