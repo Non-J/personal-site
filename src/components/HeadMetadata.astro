@@ -11,4 +11,10 @@ const { title = "Non's Personal Page" } = Astro.props;
 <meta name="description" content="Jirawut's Personal Page" />
 <meta name="keywords" content="portfolio,personal,contact,blog" />
 <title>{title}</title>
+
 <slot />
+
+<!-- Global CSS -->
+<style global>
+  @import '../styles/tailwind.css';
+</style>

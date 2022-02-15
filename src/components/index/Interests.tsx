@@ -9,6 +9,7 @@ const all_items = [
   'Speaks English (supposedly) 🌐',
   '한국어를 공부하고 있어 🇰🇷',
   'Slow to reply to texts (sry)',
+  "Rhythmically challenged 😖",
   // Computer stuff
   'Horrified by C++ 💻',
   'CMake?... say no more 😨💻',
