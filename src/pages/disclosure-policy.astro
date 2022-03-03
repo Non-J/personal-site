@@ -1,10 +1,12 @@
 ---
 import HeadMetadata from '../components/HeadMetadata.astro';
-import '../styles/tailwind.css';
 ---
 
 <html lang="en">
   <head>
+    <style global>
+      @import '../styles/tailwind.css';
+    </style>
     <HeadMetadata title="Disclosure Policy" />
   </head>
   <body>

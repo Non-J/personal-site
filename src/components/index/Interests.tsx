@@ -6,10 +6,12 @@ const all_items = [
   'Likes Coding 💻',
   'Video Game Addict 🕹',
   'College Student 🎓',
-  'Speaks English (supposedly) 🌐',
-  '한국어를 공부하고 있어 🇰🇷',
+  // 'Speaks English (supposedly) 🌐',
+  // '한국어를 공부하고 있어 🇰🇷',
   'Slow to reply to texts (sry)',
-  "Rhythmically challenged 😖",
+  'Rhythmically challenged 😖',
+  '🇹🇭 TH is my native language',
+  "Blame my phone for missing your call",
   // Computer stuff
   'Horrified by C++ 💻',
   'CMake?... say no more 😨💻',
@@ -24,7 +26,7 @@ const all_items = [
   'Have horrible social anxiety 😰',
   'Trash music taste 🎵',
   "Can't even aim bruh 🕹",
-  'Mint chocolate... why? 😣',
+  // 'Mint chocolate... why? 😣',
   'Who even read these texts? 🤔',
 ];
 
