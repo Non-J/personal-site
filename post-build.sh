@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-cp -r public/.well-known dist/.well-known
-
 npx html-minifier-terser \
     --input-dir dist \
     --output-dir dist \
