@@ -1,17 +1,17 @@
 import { defineConfig } from 'astro/config';
 import solid from '@astrojs/solid-js';
-import tailwind from "@astrojs/tailwind";
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://jirawut.com/',
-  build: {
-    format: 'file',
-  },
-  integrations: [
-    solid(),
-    tailwind({
-      config: { applyBaseStyles: false },
-    }),
-  ],
+	site: 'https://jirawut.com',
+	build: {
+		format: 'file',
+	},
+	integrations: [
+		solid(),
+		tailwind({
+			config: { applyBaseStyles: false },
+		}),
+	],
 });

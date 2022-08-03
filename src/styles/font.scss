@@ -1,0 +1,96 @@
+/* Static English Font */
+@mixin lexend-weight($weight) {
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-#{$weight}.ttf') format('truetype');
+		font-weight: $weight;
+	}
+}
+@supports not (font-variation-settings: normal) {
+	@for $i from 1 through 9 {
+		@include lexend-weight($i * 100);
+	}
+}
+
+/* Variable English Font */
+@supports (font-variation-settings: normal) {
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-weight: 100 900;
+		font-display: swap;
+		src: url('/assets/fonts/lexend.woff2') format('woff2'),
+			url('/assets/fonts/lexend.ttf') format('truetype');
+	}
+}
+
+/* Thai Font */
+@font-face {
+	font-family: 'Anakotmai';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url('/assets/fonts/Anakotmai-Light.woff2') format('woff2'),
+		url('/assets/fonts/Anakotmai-Light.ttf') format('truetype');
+	unicode-range: U+000D, U+0020, U+00A0, U+0E01-0E3A, U+0E3F-0E5B;
+}
+@font-face {
+	font-family: 'Anakotmai';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url('/assets/fonts/Anakotmai-Medium.woff2') format('woff2'),
+		url('/assets/fonts/Anakotmai-Medium.ttf') format('truetype');
+	unicode-range: U+000D, U+0020, U+00A0, U+0E01-0E3A, U+0E3F-0E5B;
+}
+@font-face {
+	font-family: 'Anakotmai';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/assets/fonts/Anakotmai-Bold.woff2') format('woff2'),
+		url('/assets/fonts/Anakotmai-Bold.ttf') format('truetype');
+	unicode-range: U+000D, U+0020, U+00A0, U+0E01-0E3A, U+0E3F-0E5B;
+}
+
+/* Korean Font */
+/* NOTE: Contain only specific subset of glyphs used */
+@font-face {
+	font-family: 'NanumGothic';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url('/assets/fonts/NanumGothic-Regular.woff2') format('woff2'),
+		url('/assets/fonts/NanumGothic-Regular.ttf') format('truetype');
+	unicode-range: U+000D, U+0020, U+00A0, U+AD6D, U+C5B4, U+D55C;
+}
+@font-face {
+	font-family: 'NanumGothic';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url('/assets/fonts/NanumGothic-Bold.woff2') format('woff2'),
+		url('/assets/fonts/NanumGothic-Bold.ttf') format('truetype');
+	unicode-range: U+000D, U+0020, U+00A0, U+AD6D, U+C5B4, U+D55C;
+}
+@font-face {
+	font-family: 'NanumGothic';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/assets/fonts/NanumGothic-ExtraBold.woff2') format('woff2'),
+		url('/assets/fonts/NanumGothic-ExtraBold.ttf') format('truetype');
+	unicode-range: U+000D, U+0020, U+00A0, U+AD6D, U+C5B4, U+D55C;
+}
+
+/* Country flags. Thanks a lot, politics! */
+@font-face {
+	font-family: 'Twemoji Mozilla';
+	unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067,
+		U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007F;
+	src: url('/assets/fonts/twemoji.woff2') format('woff2'),
+		url('/assets/fonts/twemoji.ttf') format('truetype');
+	font-display: swap;
+}
