@@ -10,7 +10,7 @@
 
 @layer utilities {
 	.text-link {
-		@apply underline text-indigo-700 dark:text-indigo-300 font-medium;
+		@apply underline text-indigo-700 dark:text-indigo-200 font-medium;
 	}
 
 	.w-center-column {
