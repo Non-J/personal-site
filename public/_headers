@@ -2,7 +2,7 @@ https://:project.pages.dev/*
   X-Robots-Tag: noindex
 
 /*
-  X-Frame-Options deny
+  X-Frame-Options: deny
   X-Content-Type-Options: nosniff
   X-Permitted-Cross-Domain-Policies: none
   Cross-Origin-Embedder-Policy: require-corp
