@@ -12,7 +12,21 @@
 		"resolveJsonModule": true,
 		// Enable stricter transpilation for better output.
 		"isolatedModules": true,
-		// Add type definitions for our Vite runtime.
-		"types": ["vite/client"]
+		// Astro directly run TypeScript code, no transpilation needed.
+		"noEmit": true,
+		// Report an error when importing a file using a casing different from the casing on disk.
+		"forceConsistentCasingInFileNames": true,
+		// Properly support importing CJS modules in ESM
+		"esModuleInterop": true,
+		// Skip typechecking libraries and .d.ts files
+		"skipLibCheck": true,
+		// Add alias for assets folder for easy reference to assets
+		"baseUrl": ".",
+		"paths": {
+			"~/assets/*": ["src/assets/*"]
+		},
+		"strict": true,
+		// Error when a value import is only used as a type.
+		"importsNotUsedAsValues": "error"
 	}
 }
