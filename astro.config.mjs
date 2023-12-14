@@ -10,8 +10,6 @@ export default defineConfig({
 	},
 	integrations: [
 		solid(),
-		tailwind({
-			config: { applyBaseStyles: false },
-		}),
+		tailwind(),
 	],
 });
