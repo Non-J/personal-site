@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>DHIS Presentation</title>
+
+		<link rel="stylesheet" href="reveal-dist/reset.css">
+		<link rel="stylesheet" href="reveal-dist/reveal.css">
+		<link rel="stylesheet" href="reveal-dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Digital Historical Unessay Proposal</h1>
+					<br>
+					Jirawut Thongraar
+				</section>
+				<section>
+					<h2>What?</h2>
+					<br>
+					<p class="fragment semi-fade-out" data-fragment-index="1">Machine Learning and AI have made substantial progress in the past decade</p>
+					<br>
+					<p class="fragment fade-in-then-semi-out" data-fragment-index="1">Had it impacted research topics in CS and related fields?</p>
+				</section>
+				<section>
+					<h2>Where?</h2>
+					arXiv.org paper titles and abstracts
+					<img class="r-stretch" src="arxiv.png">
+				</section>
+				<section>
+					<h2>How?</h2>
+					Analyze keywords in titles and abstracts over time
+					<img class="r-stretch" src="chart1.png" >
+					<p style="font-size: 0.8em; margin-top: 0; line-height: 0;">Graph of arXiv papers submitted under "cs" category</p>
+				</section>
+				<section>
+					<h2>Why?</h2>
+					<ul>
+						<li class="fragment semi-fade-out" data-fragment-index="1">Why use arXiv.org ▶ dataset is easily availiable</li>
+						<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Why not fulltext dataset ▶ fulltext is 2.7 TB 😱 (maybe for future works?)</li>
+						<li class="fragment fade-in-then-semi-out" data-fragment-index="2">Why analyze keywords ▶ I don't want to read 100000+ papers! So a more automated methodology is preferred</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Why not?</h2>
+					<ul>
+						<li class="fragment semi-fade-out" data-fragment-index="1">arXiv.org may not be representative of CS research at large</li>
+						<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Analyzing keywords may may not give as much insight as reading the full text</li>
+					</ul>
+				</section>
+				<section>
+					<h2>What outcome?</h2>
+					<ul>
+						<li class="fragment semi-fade-out" data-fragment-index="1">Make the tools that I used availiable</li>
+						<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Answer the question through graphs and other data visualizations</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Extra: Tools and software</h2>
+					<ul>
+						<li><a href="https://www.kaggle.com/datasets/Cornell-University/arxiv/data">Dataset from Kaggle</a></li>
+						<li>Data analysis in Rust (programming language) + Polar library</li>
+						<li>Data visualization and tools in HTML+JavaScript (Planned)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Extra: Progress so far</h2>
+					<ul>
+						<li>Dataset is in a "ready" state</li>
+						<ul>
+							<li>The dataset is processed into <em>Apache Parquet</em> format (~1.1 GB)</li>
+							<li>Can query for whatever specific information using Rust code</li>
+						</ul>
+						<li>Data visualization tools currently only has empty template</li>
+						<br>
+						<li>Expected progress:</li>
+						<ul>
+							<li>Most of the data analysis and visualization done within May</li>
+							<li>Cleanup into a useful format done for submission in June</li>
+						</ul>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="reveal-dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				margin: 0.1,
+			
+				width: 1280,
+  				height: 720,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
