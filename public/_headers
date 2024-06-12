@@ -2,10 +2,9 @@ https://:project.pages.dev/*
   X-Robots-Tag: noindex
 
 /*
-  X-Frame-Options: deny
   X-Content-Type-Options: nosniff
   X-Permitted-Cross-Domain-Policies: none
   Cross-Origin-Embedder-Policy: require-corp
   Cross-Origin-Opener-Policy: same-origin
   Referrer-Policy: no-referrer
-  Content-Security-Policy: default-src 'self'; script-src 'report-sample' 'self' 'unsafe-inline' static.cloudflareinsights.com; style-src 'report-sample' 'self' 'unsafe-inline'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
+  Content-Security-Policy: default-src 'self'; script-src 'self' static.cloudflareinsights.com; style-src 'self'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
