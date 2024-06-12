@@ -5,11 +5,8 @@ import { shield } from '@kindspells/astro-shield';
 import solid from '@astrojs/solid-js';
 import tailwind from '@astrojs/tailwind';
 
-const modulePath = resolve(
-	import.meta.dir,
-	'.astro',
-	'generated_hashes.mjs',
-);
+const rootDir = new URL('.', import.meta.url).pathname;
+const modulePath = resolve(rootDir, '.astro', 'generated_hashes.mjs');
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +20,6 @@ export default defineConfig({
 		shield({
 			sri: {
 				hashesModule: modulePath,
-				enableMiddleware: true,
 			},
 		}),
 	],
