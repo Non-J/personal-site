@@ -6,5 +6,6 @@ https://:project.pages.dev/*
   X-Permitted-Cross-Domain-Policies: none
   Cross-Origin-Embedder-Policy: require-corp
   Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-site
   Referrer-Policy: no-referrer
   Content-Security-Policy: default-src 'self'; script-src 'self' static.cloudflareinsights.com; style-src 'self'; object-src 'none'; connect-src 'self' cloudflareinsights.com; frame-ancestors 'none'; upgrade-insecure-requests;
