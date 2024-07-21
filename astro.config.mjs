@@ -5,6 +5,7 @@ import { shield } from '@kindspells/astro-shield';
 import solid from '@astrojs/solid-js';
 import tailwind from '@astrojs/tailwind';
 import * as compress from '@playform/compress';
+import mdx from '@astrojs/mdx';
 
 const rootDir = new URL('.', import.meta.url).pathname;
 const modulePath = resolve(rootDir, '.astro', 'generated_hashes.mjs');
@@ -15,9 +16,17 @@ export default defineConfig({
 	build: {
 		format: 'file',
 	},
-	compressHTML: true,
+	i18n: {
+		defaultLocale: 'en',
+		locales: ['en', 'th', 'ko'],
+		fallback: {
+			th: 'en',
+			ko: 'en',
+		},
+	},
 	integrations: [
 		solid(),
+		mdx(),
 		tailwind(),
 		compress.default({
 			Image: false,

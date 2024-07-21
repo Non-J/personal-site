@@ -1,0 +1,25 @@
+---
+import 'src/styles/font.scss';
+import Base from 'src/layouts/Base.astro';
+import { getTranslator } from 'src/i18n/lang';
+
+const t = getTranslator(Astro.currentLocale);
+---
+
+<Base title={t.getText('404/not_found')}>
+	<main>
+		<div class="flex min-h-screen">
+			<div class="m-auto text-center">
+				<h1 class="text-7xl">{t.getText('404/not_found')}</h1>
+				<p class="text-2xl mt-2">
+					{t.getText('404/message')}
+				</p>
+				<div class="mt-6">
+					<a class="underline text-link text-xl" href="/"
+						>[ {t.getText('homepage')} ]</a
+					>
+				</div>
+			</div>
+		</div>
+	</main>
+</Base>

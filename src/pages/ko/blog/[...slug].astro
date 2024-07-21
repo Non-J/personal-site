@@ -1,0 +1,14 @@
+---
+import BlogEntry from 'src/layouts/BlogEntry.astro';
+import {
+	makeGetStaticPaths,
+	type BlogPostStaticPathType,
+} from 'src/utils/blogStaticPaths';
+
+export const getStaticPaths = makeGetStaticPaths("ko");
+
+export interface Props extends BlogPostStaticPathType {}
+const { should_render_post, post } = Astro.props;
+---
+
+<BlogEntry should_render_post={should_render_post} post={post} />

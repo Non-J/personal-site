@@ -1,4 +1,4 @@
-import { Component, onCleanup, createSignal } from 'solid-js';
+import { type Component, onCleanup, createSignal } from 'solid-js';
 import './Interests.css';
 
 const all_items = [

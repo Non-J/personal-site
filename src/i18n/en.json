@@ -1,0 +1,16 @@
+{
+	"homepage": "Homepage",
+
+	"404/not_found": "Not Found",
+	"404/message": "Sorry, we couldn't find the page you're looking for.",
+
+	"ui/scroll_top": "Go to top",
+
+	"blog/name": "Blog // A Reader of One",
+	"blog/back_to_posts": "All posts",
+	"blog/not_found_language": "This blog post isn't available in English.",
+	"blog/not_found_language_message": "The blog post \"${title}\" is available in English.",
+	"blog/not_found_language_redirect": "See this blog post in English",
+	"blog/published_date": "Published",
+	"blog/updated_date": "Updated"
+}

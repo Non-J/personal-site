@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getTranslator } from 'src/i18n/lang';
+
+export interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+const t = getTranslator(Astro.currentLocale);
+
+const { post } = Astro.props;
+
+const routeForPost = (() => {
+	const split = post.slug.split('/');
+	if (split.length === 1) {
+		return t.getRoute('blog/' + split[0]);
+	} else {
+		return t.getRoute('blog/' + split[1]);
+	}
+})();
+---
+
+<style>
+	.pills-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25em;
+	}
+</style>
+
+<a
+	href={routeForPost}
+	class="bg-indigo-800 hover:bg-indigo-900 ring-0 hover:ring-4 ring-indigo-900 ring-opacity-50 transition duration-200 mt-3 p-4 rounded-md overflow-hidden"
+>
+	<h2 class="text-2xl">{post.data.title}</h2>
+	<p class="text-opacity-5 dark:text-neutral-200">{post.data.tagline}</p>
+	<div class="pills-container">
+		<p>{t.formatDate(post.data.publication_date)}</p>
+		{post.data.tags?.map((tag) => <p class="pill">#{tag}</p>)}
+	</div>
+</a>

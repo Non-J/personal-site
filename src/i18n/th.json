@@ -1,0 +1,16 @@
+{
+	"homepage": "หน้าหลัก",
+
+	"404/not_found": "ไม่พบหน้าเพจ",
+	"404/message": "ไม่พบหน้าเพจที่คุณกำลังมองหา",
+
+	"ui/scroll_top": "ไปด้านบน",
+
+	"blog/name": "บล็อก // A Reader of One",
+	"blog/back_to_posts": "โพสต์ทั้งหมด",
+	"blog/not_found_language": "โพสต์นี้ไม่มีฉบับในภาษาไทย",
+	"blog/not_found_language_message": "โพสต์ \"${title}\" มีเป็นฉบับภาษาอังกฤษ",
+	"blog/not_found_language_redirect": "ไปที่ฉบับภาษาอังกฤษ",
+	"blog/published_date": "เผยแพร่",
+	"blog/updated_date": "ปรับปรุง"
+}

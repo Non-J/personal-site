@@ -64,7 +64,7 @@
 	font-display: swap;
 	src: url('/assets/fonts/NanumGothic-Regular.woff2') format('woff2'),
 		url('/assets/fonts/NanumGothic-Regular.ttf') format('truetype');
-	unicode-range: U+000D, U+0020, U+00A0, U+AD6D, U+C5B4, U+D55C;
+	unicode-range: U+000D, U+0020, U+00A0, U+AC00-D7AF;
 }
 @font-face {
 	font-family: 'NanumGothic';
@@ -73,7 +73,7 @@
 	font-display: swap;
 	src: url('/assets/fonts/NanumGothic-Bold.woff2') format('woff2'),
 		url('/assets/fonts/NanumGothic-Bold.ttf') format('truetype');
-	unicode-range: U+000D, U+0020, U+00A0, U+AD6D, U+C5B4, U+D55C;
+	unicode-range: U+000D, U+0020, U+00A0, U+AC00-D7AF;
 }
 @font-face {
 	font-family: 'NanumGothic';
@@ -82,7 +82,7 @@
 	font-display: swap;
 	src: url('/assets/fonts/NanumGothic-ExtraBold.woff2') format('woff2'),
 		url('/assets/fonts/NanumGothic-ExtraBold.ttf') format('truetype');
-	unicode-range: U+000D, U+0020, U+00A0, U+AD6D, U+C5B4, U+D55C;
+	unicode-range: U+000D, U+0020, U+00A0, U+AC00-D7AF;
 }
 
 /* Country flags. Thanks a lot, politics! */

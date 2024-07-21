@@ -1,0 +1,108 @@
+---
+/**
+ * A button that scrolls to the top when the user starts scrolling up slightly.
+ */
+
+import { getTranslator } from 'src/i18n/lang';
+
+const t = getTranslator(Astro.currentLocale);
+---
+
+<script>
+	// The minimum scrollY that would activate the button.
+	const minimumScrollY = 400;
+	// The minimum scrollY that needed to be scrolled up to activate the button.
+	const scrollActivateThreshold = 100;
+
+	class ScrollToTopElement extends HTMLElement {
+		// Track the last scrollY value each time the callback is called.
+		#lastScrollY = 0;
+		// Track how much scrollY has moved up.
+		#scrollActivate = 0;
+		// Whether the element is activated
+		#activated = false;
+		// Store the target element
+		#target: Element = undefined!;
+
+		// Allow this.scrollListener to access this as ScrollToTopElement
+		// If this.scrollListener is used directly, this will refer to document object instead
+		#scrollEventListener = () => {
+			this.#scrollListener();
+		};
+
+		constructor() {
+			super();
+		}
+
+		connectedCallback() {
+			this.#target = this.querySelector('#scrollToTop')!;
+			document.addEventListener('scroll', this.#scrollEventListener);
+			this.#target.addEventListener('click', this.#doScrollToTop);
+		}
+
+		disconnectedCallback() {
+			document.removeEventListener('scroll', this.#scrollEventListener);
+			this.#target.removeEventListener('click', this.#doScrollToTop);
+		}
+
+		#scrollListener() {
+			if (window.scrollY < this.#lastScrollY) {
+				this.#scrollActivate += this.#lastScrollY - window.scrollY;
+			} else {
+				this.#scrollActivate = 0;
+			}
+
+			this.#lastScrollY = window.scrollY;
+
+			if (
+				window.scrollY > minimumScrollY &&
+				this.#scrollActivate > scrollActivateThreshold
+			) {
+				if (!this.#activated) {
+					// display property animation doesn't work without this
+					this.#target.classList.add('block');
+					this.#target.classList.remove('hidden');
+					getComputedStyle(this.#target).display;
+					this.#target.classList.add('opacity-1');
+					this.#target.classList.remove('opacity-0');
+					this.#activated = true;
+				}
+			} else {
+				this.#target.classList.remove('block', 'opacity-1');
+				this.#target.classList.add('hidden', 'opacity-0');
+				this.#activated = false;
+			}
+		}
+
+		#doScrollToTop() {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+	}
+
+	customElements.define('scroll-to-top', ScrollToTopElement);
+</script>
+
+<style is:inline>
+	.disableEvent {
+		pointer-events: none;
+	}
+
+	#scrollToTop {
+		transition-property: color, background-color, border-color,
+			text-decoration-color, fill, stroke, opacity, box-shadow, transform,
+			filter, backdrop-filter, display;
+		transition-duration: 200ms;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transition-behavior: allow-discrete;
+	}
+</style>
+
+<scroll-to-top>
+	<div class="fixed top-0 left-0 right-0 mx-auto mt-4 w-max">
+		<button
+			id="scrollToTop"
+			class="bg-rose-700 hover:bg-rose-800 ring-0 hover:ring-4 ring-rose-900 ring-opacity-50 py-3 px-8 text-center rounded-full whitespace-nowrap overflow-hidden hidden opacity-0"
+			tabindex="-1">{t.getText('ui/scroll_top')}</button
+		>
+	</div>
+</scroll-to-top>

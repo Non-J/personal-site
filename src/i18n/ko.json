@@ -1,0 +1,16 @@
+{
+	"homepage": "홈페이지",
+
+	"404/not_found": "페이지를 찾을 수 없다",
+	"404/message": "죄송합니다, 원하는 페이지를 찾을 수 없습니다.",
+
+	"ui/scroll_top": "위로 가기",
+
+	"blog/name": "블로그 // A Reader of One",
+	"blog/back_to_posts": "다른 포스트",
+	"blog/not_found_language": "이 포스트는 한국어판이 없습니다.",
+	"blog/not_found_language_message": "\"${title}\"라는 포스트는 영어판이 있습니다.",
+	"blog/not_found_language_redirect": "영어판에 가기",
+	"blog/published_date": "입력",
+	"blog/updated_date": "수정"
+}

@@ -1,10 +1,8 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-const colors = require('tailwindcss/colors');
-const plugin = require('tailwindcss/plugin');
+import type { Config } from 'tailwindcss';
+import { fontFamily as defaultFontFamily } from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-	mode: 'jit',
+export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	darkMode: 'media',
 	theme: {
@@ -21,14 +19,9 @@ module.exports = {
 					'Anakotmai',
 					'NanumGothic',
 					'Twemoji Mozilla',
-					...defaultTheme.fontFamily.sans,
+					...defaultFontFamily.sans,
 				],
 			},
-		},
-	},
-	variants: {
-		extend: {
-			typography: ['dark'],
 		},
 	},
 	plugins: [
@@ -47,7 +40,7 @@ module.exports = {
 				},
 			});
 		}),
-		plugin(function ({ addBase, theme }) {
+		plugin(function ({ addBase }) {
 			addBase({
 				body: {
 					'@apply bg-yellow-50 dark:bg-slate-800 dark:text-neutral-200': {},
@@ -55,4 +48,4 @@ module.exports = {
 			});
 		}),
 	],
-};
+} satisfies Config;

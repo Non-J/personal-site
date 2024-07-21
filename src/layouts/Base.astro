@@ -1,0 +1,26 @@
+---
+import type { Language } from 'src/i18n/lang';
+
+export interface Props {
+	title: string;
+	lang?: Language;
+}
+const { title, lang = Astro.currentLocale } = Astro.props;
+---
+
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="author" content="Jirawut Thongraar" />
+		<meta name="description" content="Jirawut's Personal Page" />
+		<meta name="keywords" content="portfolio,personal,contact,blog" />
+
+		<title>{title}</title>
+
+		<slot name="head" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
