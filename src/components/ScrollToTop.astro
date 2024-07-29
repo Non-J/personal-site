@@ -61,7 +61,7 @@ const t = getTranslator(Astro.currentLocale);
 				if (!this.#activated) {
 					// display property animation doesn't work without this
 					this.#target.classList.add('block');
-					this.#target.classList.remove('hidden');
+					this.#target.classList.remove('hidden', 'i');
 					getComputedStyle(this.#target).display;
 					this.#target.classList.add('opacity-1');
 					this.#target.classList.remove('opacity-0');
@@ -91,6 +91,10 @@ const t = getTranslator(Astro.currentLocale);
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 		transition-behavior: allow-discrete;
 	}
+
+	#scrollToTop.i {
+		display: none;
+	}
 </style>
 
 <scroll-to-top>
@@ -98,7 +102,7 @@ const t = getTranslator(Astro.currentLocale);
 		<button
 			id="scrollToTop"
 			class={'select-none overflow-hidden whitespace-nowrap rounded-full bg-rose-700 px-4 py-2 text-center text-neutral-100 text-opacity-90 hover:bg-rose-900' +
-				' hidden opacity-0'}
+				' i hidden opacity-0'}
 			tabindex="-1">{t.getText('ui/scroll_top')}</button
 		>
 	</div>
