@@ -4,11 +4,12 @@
  */
 
 import 'src/styles/font.scss';
-import Base from 'src/layouts/Base.astro';
-import { ViewTransitions } from 'astro:transitions';
+import Main from 'src/layouts/Main.astro';
+import BlogIndexEntry from 'src/components/blog/BlogIndexEntry.astro';
+import ScrollToTop from 'src/components/ScrollToTop.astro';
+import NavLink from 'src/components/NavLink.astro';
 import { getCollection } from 'astro:content';
 import { getTranslator, defaultLocale } from 'src/i18n/lang';
-import BlogIndexEntry from 'src/components/blog/BlogIndexEntry.astro';
 
 const t = getTranslator(Astro.currentLocale);
 
@@ -28,16 +29,18 @@ posts.sort(
 );
 ---
 
-<Base title={t.getText('blog/name')}>
+<Main title={t.getText('blog/name')} hasHeader>
 	<Fragment slot="head">
-		<ViewTransitions />
+		<ScrollToTop />
 	</Fragment>
 
-	<main class="w-center-column text-autoscale min-h-screen flex flex-col">
-		<h1 class="text-center font-semibold text-4xl my-4">
-			{t.getText('blog/name')}
-		</h1>
+	<Fragment slot="header">
+		<NavLink href={t.getRoute('/')} text={t.getText('homepage')} />
+	</Fragment>
 
+	<h1>{t.getText('blog/name')}</h1>
+
+	<div class="flex flex-col gap-3">
 		{posts.map((post) => <BlogIndexEntry post={post} />)}
-	</main>
-</Base>
+	</div>
+</Main>

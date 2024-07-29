@@ -1,0 +1,26 @@
+---
+import NavLink from './NavLink.astro';
+
+export interface Props {
+	className?: string;
+}
+const { className } = Astro.props;
+---
+
+<footer
+	class={'flex flex-col lg:flex-row gap-2' + (className ? ` ${className}` : '')}
+	transition:persist
+>
+	<span class="flex-auto">
+		Made from ❤ and open-source libraries. This work is licensed under <NavLink
+			href="https://github.com/Non-J/personal-site/blob/main/LICENSE"
+			text="CC BY-NC 4.0"
+			decoration={false}
+		/>.</span
+	>
+
+	<nav class="flex flex-wrap justify-end gap-2 self-end md:gap-4 lg:self-auto">
+		<NavLink href="/thirdparty-notices" text="Third-party Notices" />
+		<NavLink href="https://github.com/Non-J/personal-site" text="Repository" />
+	</nav>
+</footer>

@@ -68,9 +68,11 @@ const t = getTranslator(Astro.currentLocale);
 					this.#activated = true;
 				}
 			} else {
-				this.#target.classList.remove('block', 'opacity-1');
-				this.#target.classList.add('hidden', 'opacity-0');
-				this.#activated = false;
+				if (this.#activated) {
+					this.#target.classList.remove('block', 'opacity-1');
+					this.#target.classList.add('hidden', 'opacity-0');
+					this.#activated = false;
+				}
 			}
 		}
 
@@ -83,14 +85,8 @@ const t = getTranslator(Astro.currentLocale);
 </script>
 
 <style is:inline>
-	.disableEvent {
-		pointer-events: none;
-	}
-
 	#scrollToTop {
-		transition-property: color, background-color, border-color,
-			text-decoration-color, fill, stroke, opacity, box-shadow, transform,
-			filter, backdrop-filter, display;
+		transition-property: background-color, opacity, display;
 		transition-duration: 200ms;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 		transition-behavior: allow-discrete;
@@ -98,10 +94,11 @@ const t = getTranslator(Astro.currentLocale);
 </style>
 
 <scroll-to-top>
-	<div class="fixed top-0 left-0 right-0 mx-auto mt-4 w-max">
+	<div class="fixed left-0 right-0 top-0 z-50 mx-auto mt-4 w-max">
 		<button
 			id="scrollToTop"
-			class="bg-rose-700 hover:bg-rose-800 ring-0 hover:ring-4 ring-rose-900 ring-opacity-50 py-3 px-8 text-center rounded-full whitespace-nowrap overflow-hidden hidden opacity-0"
+			class={'select-none overflow-hidden whitespace-nowrap rounded-full bg-rose-700 px-4 py-2 text-center text-neutral-100 text-opacity-90 hover:bg-rose-900' +
+				' hidden opacity-0'}
 			tabindex="-1">{t.getText('ui/scroll_top')}</button
 		>
 	</div>

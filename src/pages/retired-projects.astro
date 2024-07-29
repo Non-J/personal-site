@@ -1,34 +1,29 @@
 ---
-import '../styles/font.scss';
-import HeadMetadata from '../components/HeadMetadata.astro';
+import Main from 'src/layouts/Main.astro';
+import NavLink from 'src/components/NavLink.astro';
+import ArticleIntro from 'src/components/ArticleIntro.astro';
+import { getTranslator } from 'src/i18n/lang';
+import { dateUTC } from 'src/utils/datetime';
+
+const t = getTranslator(Astro.currentLocale);
 ---
 
-<html lang="en">
-	<head>
-		<HeadMetadata title="Retired Projects" />
-	</head>
-	<body>
-		<nav class="w-center-column pt-8">
-			<a class="underline text-link" href="/">[ Homepage ]</a>
-		</nav>
+<Main title="Retired Projects" hasHeader>
+	<Fragment slot="header">
+		<NavLink href={t.getRoute('/')} text={t.getText('homepage')} />
+	</Fragment>
 
-		<main
-			class="w-center-column py-12 prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl"
-		>
-			<h1>Retired Projects</h1>
+	<ArticleIntro
+		title="Retired Projects"
+		publication_date={dateUTC(2021, 11, 26)}
+	/>
 
-			<p>
-				You are redirected here because the project you are trying to visit has
-				been retired and is no longer available. The unfortunate reality is that
-				things on the internet cannot last forever, and this one has reached the
-				end of its life span.
-			</p>
+	<p>
+		You are redirected here because the project you are trying to visit has been
+		retired and is no longer available. The unfortunate reality is that things
+		on the internet cannot last forever, and this one has reached the end of its
+		life span.
+	</p>
 
-			<p>
-				That's all folks.
-				<br />
-				Last updated: 2021-11-26
-			</p>
-		</main>
-	</body>
-</html>
+	<p>That's all folks.</p>
+</Main>

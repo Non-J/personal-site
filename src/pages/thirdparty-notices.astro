@@ -1,121 +1,96 @@
 ---
-import '../styles/font.scss';
-import HeadMetadata from '../components/HeadMetadata.astro';
+import Main from 'src/layouts/Main.astro';
+import NavLink from 'src/components/NavLink.astro';
+import ArticleIntro from 'src/components/ArticleIntro.astro';
+import { getTranslator } from 'src/i18n/lang';
+import { dateUTC } from 'src/utils/datetime';
+
+const t = getTranslator(Astro.currentLocale);
 ---
 
-<html lang="en">
-	<head>
-		<HeadMetadata title="Third-party Notices" />
-	</head>
+<Main title="Third-party Notices" hasHeader>
+	<Fragment slot="header">
+		<NavLink href={t.getRoute('/')} text={t.getText('homepage')} />
+	</Fragment>
 
-	<body>
-		<nav class="w-center-column pt-8">
-			<a class="underline text-link" href="/">[ Homepage ]</a>
-		</nav>
+	<ArticleIntro
+		title="Third-party Notices"
+		publication_date={dateUTC(2022, 8, 3)}
+		update_date={dateUTC(2024, 7, 28)}
+	/>
 
-		<main
-			class="w-center-column py-12 prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl"
-		>
-			<h1>Third-party Notices</h1>
+	<p>
+		This project wouldn't be possible without the generosity of those who make
+		their works publicly available for others to use. This notice is here as a
+		tribute for the use of respective libraries or works.
+	</p>
 
-			<p>
-				This project wouldn't be possible without the generosity of those who
-				make their works publicly available for others to use. This notice is
-				here as a tribute for the use of respective libraries or works.
-			</p>
+	<h2>Fonts</h2>
 
-			<h2>Fonts</h2>
+	<ul>
+		<li>
+			<a href="https://futureforwardparty.org/?p=1965"
+				>Anakotmai - Future Forward Party, Cadson Demak - Public Domain</a
+			>
+		</li>
+		<li>
+			<a href="https://github.com/googlefonts/lexend"
+				>Lexend - Bonnie Shaver-Troup, Thomas Jockin, Santiago Orozco, Hector
+				Gomez, Superunion - OFL 1.1</a
+			>
+		</li>
+		<li>
+			<a href="https://fonts.google.com/specimen/Nanum+Gothic#license"
+				>Nanum Gothic - Sandoll - OFL 1.1</a
+			>
+		</li>
+		<li>
+			<a href="https://github.com/mozilla/twemoji-colr"
+				>Twemoji - Mozilla, Twitter - Font under Apache License 2.0 and Visual
+				Design under CC-BY-4.0</a
+			>
+		</li>
+		<li>
+			<a href="https://github.com/fonttools/fonttools">Fonttools - MIT</a>
+		</li>
+		<li>
+			<a href="https://github.com/googlefonts/gftools"
+				>Gftools - Apache License 2.0</a
+			>
+		</li>
+	</ul>
 
-			<ul>
-				<li
-					><a href="https://futureforwardparty.org/?p=1965"
-						>Anakotmai - Future Forward Party, Cadson Demak - Public Domain
-					</a>
-				</li>
-				<li
-					><a href="https://github.com/googlefonts/lexend"
-						>Lexend - Bonnie Shaver-Troup, Thomas Jockin, Santiago Orozco,
-						Hector Gomez, Superunion - OFL 1.1
-					</a>
-				</li>
-				<li
-					><a href="https://fonts.google.com/specimen/Nanum+Gothic#license"
-						>Nanum Gothic - Sandoll - OFL 1.1
-					</a>
-				</li>
-				<li
-					><a href="https://github.com/mozilla/twemoji-colr"
-						>Twemoji - Mozilla, Twitter - Font under Apache License 2.0 and
-						Visual Design under CC-BY-4.0
-					</a>
-				</li>
-			</ul>
+	<h2>Frontend</h2>
 
-			<h2>Frontend Frameworks</h2>
-
-			<ul>
-				<li><a href="https://github.com/withastro/astro">Astro - MIT</a></li>
-				<li
-					><a href="https://github.com/tailwindlabs/tailwindcss"
-						>Tailwind - MIT
-					</a>
-				</li>
-				<li
-					><a href="https://github.com/tailwindlabs/tailwindcss-typography"
-						>Tailwind Typography - MIT
-					</a>
-				</li>
-				<li><a href="https://github.com/solidjs/solid">Solid - MIT</a></li>
-			</ul>
-
-			<h2>Toolings</h2>
-
-			<ul>
-				<li
-					><a href="https://github.com/postcss/autoprefixer"
-						>Autoprefixer - MIT
-					</a>
-				</li>
-				<li
-					><a href="https://github.com/fonttools/fonttools">Fonttools - MIT</a>
-				</li>
-				<li
-					><a href="https://github.com/googlefonts/gftools"
-						>Gftools - Apache License 2.0
-					</a>
-				</li>
-				<li
-					><a href="https://github.com/prettier/prettier">Prettier - MIT</a>
-				</li>
-				<li
-					><a href="https://github.com/withastro/prettier-plugin-astro"
-						>Prettier Astro Plugin - MIT
-					</a>
-				</li>
-				<li><a href="https://github.com/sass/sass">Sass - MIT</a></li>
-				<li
-					><a href="https://github.com/terser/html-minifier-terser"
-						>Terser - MIT
-					</a>
-				</li>
-				<li
-					><a href="https://github.com/microsoft/TypeScript"
-						>TypeScript - MIT
-					</a>
-				</li>
-				<li><a href="https://github.com/solidjs/solid">Solid - MIT</a></li>
-			</ul>
-
-			<p>
-				Best efforts have been made in the accuracy of this notice. If you've
-				found a problem with this notice, please contact&nbsp;<a
-					href="mailto:hello@jirawut.com"
-					class="underline"
-					>hello@jirawut.com
-				</a>.
-			</p>
-
-			<p> Last updated: 2022-08-03</p>
-		</main>
-	</body>
-</html>
+	<ul>
+		<li><a href="https://github.com/withastro/astro">Astro - MIT</a></li>
+		<li>
+			<a href="https://github.com/kindspells/astro-shield">astro-shield - MIT</a
+			>
+		</li>
+		<li>
+			<a href="https://github.com/oven-sh/bun">Bun - MIT</a>
+		</li>
+		<li>
+			<a href="https://github.com/Playform/Compress">Compress - MIT</a>
+		</li>
+		<li><a href="https://github.com/cssnano/cssnano">cssnano - MIT</a></li>
+		<li><a href="https://github.com/mdx-js/mdx">MDX - MIT</a></li>
+		<li>
+			<a href="https://github.com/yunusga/postcss-sort-media-queries"
+				>postcss-sort-media-queries - MIT</a
+			>
+		</li>
+		<li>
+			<a href="https://github.com/prettier/prettier">Prettier - MIT</a>
+		</li>
+		<li>
+			<a href="https://github.com/tailwindlabs/tailwindcss">Tailwind - MIT</a>
+		</li>
+		<li><a href="https://github.com/sass/sass">Sass - MIT</a></li>
+		<li><a href="https://github.com/solidjs/solid">Solid - MIT</a></li>
+		<li>
+			<a href="https://github.com/microsoft/TypeScript">TypeScript - MIT</a>
+		</li>
+	</ul>
+</Main>

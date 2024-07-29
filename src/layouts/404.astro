@@ -1,6 +1,7 @@
 ---
 import 'src/styles/font.scss';
 import Base from 'src/layouts/Base.astro';
+import NavLink from 'src/components/NavLink.astro';
 import { getTranslator } from 'src/i18n/lang';
 
 const t = getTranslator(Astro.currentLocale);
@@ -8,18 +9,20 @@ const t = getTranslator(Astro.currentLocale);
 
 <Base title={t.getText('404/not_found')}>
 	<main>
-		<div class="flex min-h-screen">
-			<div class="m-auto text-center">
-				<h1 class="text-7xl">{t.getText('404/not_found')}</h1>
-				<p class="text-2xl mt-2">
-					{t.getText('404/message')}
-				</p>
-				<div class="mt-6">
-					<a class="underline text-link text-xl" href="/"
-						>[ {t.getText('homepage')} ]</a
-					>
-				</div>
-			</div>
+		<div
+			class="flex min-h-screen flex-col items-center justify-center text-center"
+		>
+			<h1 class="text-4xl text-neutral-100 text-opacity-90">
+				{t.getText('404/not_found')}
+			</h1>
+			<p class="mt-2 text-lg">
+				{t.getText('404/message')}
+			</p>
+			<NavLink
+				className="mt-8 block text-lg"
+				text={t.getText('homepage')}
+				href={t.getRoute('/')}
+			/>
 		</div>
 	</main>
 </Base>

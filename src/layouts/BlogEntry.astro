@@ -4,9 +4,12 @@
  */
 
 import 'src/styles/font.scss';
-import Base from 'src/layouts/Base.astro';
-import { ViewTransitions } from 'astro:transitions';
+import Base from './Base.astro';
+import ViewTransitions from 'astro/components/ViewTransitions.astro';
+import Main from 'src/layouts/Main.astro';
+import NavLink from 'src/components/NavLink.astro';
 import ScrollToTop from 'src/components/ScrollToTop.astro';
+import ArticleIntro from 'src/components/ArticleIntro.astro';
 import type { BlogPostStaticPathType } from 'src/utils/blogStaticPaths';
 import { getTranslator } from 'src/i18n/lang';
 
@@ -21,53 +24,32 @@ const t = getTranslator(Astro.currentLocale);
 
 {
 	should_render_post ? (
-		<Base title={`TODO title - ${post.data.title}`}>
+		<Main title={post.data.title} hasHeader>
 			<Fragment slot="head">
-				<ViewTransitions />
+				<ScrollToTop />
 			</Fragment>
-			<ScrollToTop />
 
-			<main class="py-12 w-center-column prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl">
-				<a
-					class="text-link w-max flex-none my-2 whitespace-nowrap"
+			<Fragment slot="header">
+				<NavLink href={t.getRoute('/')} text={t.getText('homepage')} />
+				<NavLink
 					href={t.getRoute('/blog')}
-				>
-					[ {t.getText('blog/back_to_posts')} ]
-				</a>
+					text={t.getText('blog/back_to_posts')}
+				/>
+			</Fragment>
 
-				<header>
-					<h1>{post.data.title}</h1>
+			<ArticleIntro
+				title={post.data.title}
+				publication_date={post.data.publication_date}
+				update_date={post.data.update_date ?? undefined}
+				toc={headings?.map((heading) => ({
+					text: heading.text,
+					depth: heading.depth,
+					href: '#' + heading.slug,
+				}))}
+			/>
 
-					<p>
-						{t.getText('blog/published_date')}{' '}
-						<time datetime={post.data.publication_date.toISOString()}>
-							{t.formatDate(post.data.publication_date)}
-						</time>
-						{post.data.update_date && (
-							<>
-								• {t.getText('blog/updated_date')}{' '}
-								<time datetime={post.data.update_date.toISOString()}>
-									{t.formatDate(post.data.update_date)}
-								</time>
-							</>
-						)}
-					</p>
-				</header>
-
-				<nav class="my-4">
-					<h4>Table of Content</h4>
-					<ul class="list-inside list-disc">
-						{headings?.map((heading) => (
-							<li>
-								<a href={'#' + heading.slug}>{heading.text}</a>
-							</li>
-						))}
-					</ul>
-				</nav>
-
-				<article>{Content && <Content />}</article>
-			</main>
-		</Base>
+			<article>{Content && <Content />}</article>
+		</Main>
 	) : (
 		<Base title={t.getText('blog/name')}>
 			<Fragment slot="head">
@@ -75,23 +57,20 @@ const t = getTranslator(Astro.currentLocale);
 			</Fragment>
 
 			<main>
-				<div class="flex min-h-screen">
-					<div class="m-auto text-center">
-						<h1 class="text-4xl">{t.getText('blog/not_found_language')}</h1>
-						<p class="text-2xl mt-2">
-							{t.getText('blog/not_found_language_message', {
-								title: post.data.title,
-							})}
-						</p>
-						<div class="mt-6">
-							<a
-								class="underline text-link text-xl"
-								href={t.getRouteToDefaultLocale('blog/' + post.slug)}
-							>
-								[ {t.getText('blog/not_found_language_redirect')} ]
-							</a>
-						</div>
-					</div>
+				<div class="flex min-h-screen flex-col items-center justify-center text-center">
+					<h1 class="text-4xl text-neutral-100 text-opacity-90">
+						{t.getText('blog/not_found_language')}
+					</h1>
+					<p class="mt-2 text-lg">
+						{t.getText('blog/not_found_language_message', {
+							title: post.data.title,
+						})}
+					</p>
+					<NavLink
+						className="mt-8 block text-lg"
+						text={t.getText('blog/not_found_language_redirect')}
+						href={t.getRouteToDefaultLocale('blog/' + post.slug)}
+					/>
 				</div>
 			</main>
 		</Base>

@@ -1,59 +1,51 @@
 ---
-import '../styles/font.scss';
-import HeadMetadata from '../components/HeadMetadata.astro';
+import Main from 'src/layouts/Main.astro';
+import NavLink from 'src/components/NavLink.astro';
+import ArticleIntro from 'src/components/ArticleIntro.astro';
+import { getTranslator } from 'src/i18n/lang';
+import { dateUTC } from 'src/utils/datetime';
+
+const t = getTranslator(Astro.currentLocale);
 ---
 
-<html lang="en">
-	<head>
-		<HeadMetadata title="Disclosure Policy" />
-	</head>
+<Main title="Disclosure Policy" hasHeader>
+	<Fragment slot="header">
+		<NavLink href={t.getRoute('/')} text={t.getText('homepage')} />
+	</Fragment>
 
-	<body>
-		<nav class="w-center-column pt-8">
-			<a class="underline text-link" href="/">[ Homepage ]</a>
-		</nav>
+	<ArticleIntro
+		title="Disclosure Policy"
+		publication_date={dateUTC(2021, 11, 12)}
+		update_date={dateUTC(2024, 7, 28)}
+	/>
 
-		<main
-			class="w-center-column py-12 prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl"
-		>
-			<h1>Disclosure Policy</h1>
+	<p>
+		First of all, I would like to sincerely thank you for your responsible
+		disclosure. We all make mistakes; after all, we are merely humans. While I
+		cannot promise I will respond to all queries, I will try my best.
+	</p>
 
-			<p>
-				First of all, I would like to sincerely thank you for your responsible
-				disclosure. We all make mistakes; after all, we are merely humans. While
-				I cannot promise I will respond to all queries, I will try my best.
-			</p>
+	<h2>Contact</h2>
 
-			<h2>Contact</h2>
+	<p>
+		You can send an email to <NavLink
+			href="mailto:security@jirawut.com"
+			text="security@jirawut.com"
+			decoration={false}
+		/>. My PGP key is available at <NavLink
+			href="https://jirawut.com/pgp-public-disclosure.txt"
+			text="https://jirawut.com/pgp-public-disclosure.txt"
+			decoration={false}
+			noWrap={false}
+		/>.
+		<br />
+		Other method of contacts are also listed on the homepage, feel free to use any
+		of them.
+	</p>
 
-			<p>
-				You can send an email to&nbsp;<a
-					href="mailto:security@jirawut.com"
-					class="underline"
-				>
-					security@jirawut.com
-				</a>. If you are going to send an email, please use my PGP key which is
-				available at&nbsp;
-				<a
-					href="https://jirawut.com/pgp-public-disclosure.txt"
-					class="underline"
-				>
-					https://jirawut.com/pgp-public-disclosure.txt
-				</a>.
-				<br />
-				Other method of contacts are also listed on the homepage, feel free to use
-				any of them.
-			</p>
+	<h2>Rewards</h2>
 
-			<h2>Rewards</h2>
+	<p>I'm sorry but there's no rewards. Maybe we can go out for a drink?</p>
 
-			<p>I'm sorry but there's no rewards. Maybe we can go out for a drink?</p>
-
-			<p>
-				Thank you for making the internet a little safer!
-				<br />
-				Last updated: 2022-08-03
-			</p>
-		</main>
-	</body>
-</html>
+	<p>Thank you for making the internet a little safer!</p>
+</Main>

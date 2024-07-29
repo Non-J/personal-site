@@ -1,75 +1,39 @@
 ---
-import '../styles/font.scss';
-import HeadMetadata from '../components/HeadMetadata.astro';
-import Button from '../components/index/Button.astro';
-// import ButtonDisabled from '../components/index/ButtonDisabled.astro';
+import Main from 'src/layouts/Main.astro';
+import { Button } from '../components/Button';
+import { getTranslator } from 'src/i18n/lang';
+
+const t = getTranslator(Astro.currentLocale);
 ---
 
-<html lang="en">
-	<head>
-		<HeadMetadata title="Non's Homepage" />
-		<style>
-			.name {
-				font-size: 2.5em;
-				line-height: 1.225em;
-				font-weight: 600;
-				text-align: center;
-			}
-		</style>
-	</head>
+<Main title="Non's Homepage">
+	<h1 class="text-center">Non (Jirawut)</h1>
 
-	<body class="w-center-column text-autoscale min-h-screen flex flex-col">
-		<main class="flex-grow py-12 flex justify-center items-center">
-			<div
-				class="max-w-screen-md w-full h-full overflow-hidden rounded-xl shadow-2xl text-neutral-100 bg-indigo-600 flex flex-col justify-center p-6"
-			>
-				<h1 class="name mb-4">Non (Jirawut)</h1>
+	<p>
+		University student studying computer science. Particular interests includes
+		software security and user experience. Have a bit of a social anxiety,
+		please be kind if I have a hard time communicating.
+	</p>
 
-				<p class="mb-7">
-					University student studying computer science. Particular interests
-					includes software security and user experience. Have a bit of a social
-					anxiety, please be kind if I have a hard time communicating.
-				</p>
+	<figure>
+		<figcaption>Languages</figcaption>
+		<ul class="list-inside list-disc">
+			<li>🇬🇧 English</li>
+			<li>🇹🇭 Thai/ไทย</li>
+			<li>🇰🇷 Korean/한국어</li>
+		</ul>
+	</figure>
 
-				<div class="mb-7">
-					<p>Languages</p>
-					<ul role="list" class="list-inside list-disc">
-						<li>🇬🇧 English</li>
-						<li>🇹🇭 Thai/ไทย</li>
-						<li>🇰🇷 Korean/한국어 🔰</li>
-					</ul>
-				</div>
-
-				<!-- <ButtonDisabled text="Blog (Coming Soon?)" /> -->
-				<Button
-					href="mailto:hello@jirawut.com"
-					text="Email (hello@jirawut.com)"
-				/>
-				<Button
-					href="https://www.facebook.com/jirawut.thongraar"
-					text="Facebook"
-				/>
-				<Button href="https://www.instagram.com/nnon_jt" text="Instagram" />
-				<Button href="https://www.github.com/Non-J" text="GitHub" />
-				<Button href="https://www.linkedin.com/in/jirawut-thongraar" text="LinkedIn" />
-				<Button href="https://dn.kakao.com" text="Kakao (ID: jirawut)" />
-			</div>
-		</main>
-
-		<footer class="font-light flex-none flex my-6">
-			<span class="flex-auto"> Made from ❤ and open-source libraries.</span>
-			<nav class="pb-8 flex items-end justify-end flex-col md:flex-row">
-				<a
-					class="text-link w-max flex-none mx-2 whitespace-nowrap"
-					href="/thirdparty-notices"
-					>[ Third-party Notices ]
-				</a>
-				<a
-					class="text-link w-max flex-none mx-2 whitespace-nowrap"
-					href="https://github.com/Non-J/personal-site"
-					>[ Repository ]
-				</a>
-			</nav>
-		</footer>
-	</body>
-</html>
+	<div class="flex flex-col gap-3">
+		<Button href={t.getRoute('/blog')} text="Blog (Coming Soon)" disabled />
+		<Button href="mailto:hello@jirawut.com" text="Email (hello@jirawut.com)" />
+		<Button
+			href="https://www.linkedin.com/in/jirawut-thongraar"
+			text="LinkedIn"
+		/>
+		<Button href="https://www.github.com/Non-J" text="GitHub" />
+		<Button href="https://www.facebook.com/jirawut.thongraar" text="Facebook" />
+		<Button href="https://www.instagram.com/nnon_jt" text="Instagram" />
+		<Button href="https://dn.kakao.com" text="Kakao (ID: jirawut)" />
+	</div>
+</Main>

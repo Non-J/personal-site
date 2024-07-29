@@ -1,0 +1,139 @@
+---
+import 'src/styles/main-design.scss';
+import type {
+	TransitionAnimationPair,
+	TransitionDirectionalAnimations,
+} from 'astro';
+import { ViewTransitions } from 'astro:transitions';
+import Base from 'src/layouts/Base.astro';
+import Header from 'src/components/Header.astro';
+import Footer from 'src/components/Footer.astro';
+
+function fadeInOut(): TransitionDirectionalAnimations {
+	const anim = {
+		old: {
+			name: 'pageOut',
+			duration: '500ms',
+			easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+			fillMode: 'both',
+		},
+		new: {
+			name: 'pageIn',
+			duration: '500ms',
+			easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+			fillMode: 'both',
+		},
+	} satisfies TransitionAnimationPair;
+
+	return {
+		forwards: anim,
+		backwards: anim,
+	};
+}
+
+export interface Props {
+	title: string;
+	hasHeader?: boolean;
+	hasFooter?: boolean;
+}
+const { title, hasHeader = false, hasFooter = true } = Astro.props;
+
+const pageSideMargin = ' px-2 md:px-4';
+const pageTopMargin = ' pt-6 md:pt-8 lg:mt-8';
+const pageBottomMargin = ' pb-6 md:pb-8 lg:mb-8';
+const elementYGap = ' py-4 md:py-6 lg:py-8';
+---
+
+<style is:global>
+	@keyframes pageIn {
+		0% {
+			opacity: 0;
+		}
+
+		50% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes pageOut {
+		0% {
+			opacity: 1;
+		}
+
+		50% {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 0;
+		}
+	}
+
+	html {
+		scrollbar-gutter: stable;
+		overflow-x: clip;
+	}
+</style>
+
+<style>
+	@media (min-width: 1024px) {
+		.main-width {
+			width: min(calc(100vw - 2rem), 1024px);
+		}
+	}
+</style>
+
+<Base
+	title={title}
+	className="flex min-h-screen w-full flex-col items-center overflow-x-clip"
+>
+	<Fragment slot="head">
+		<ViewTransitions />
+		<slot name="head" />
+	</Fragment>
+
+	{
+		hasHeader && (
+			<div
+				class={
+					'sticky top-0 z-10 w-full bg-slate-900' + elementYGap + pageSideMargin
+				}
+			>
+				<Header className="max-w-screen-lg m-auto">
+					<slot name="header" />
+				</Header>
+			</div>
+		)
+	}
+
+	<div
+		class={'content z-20 w-max bg-indigo-950 flex-auto lg:flex-none lg:w-auto lg:rounded-3xl lg:p-8' +
+			elementYGap +
+			(!hasHeader ? pageTopMargin : '') +
+			(!hasFooter ? pageBottomMargin : '')}
+		transition:animate={fadeInOut()}
+	>
+		<main class={'w-screen main-width lg:px-0' + pageSideMargin}>
+			<slot />
+		</main>
+	</div>
+
+	{
+		hasFooter && (
+			<div
+				class={
+					'sticky bottom-0 mt-auto w-full bg-slate-900' +
+					elementYGap +
+					pageSideMargin
+				}
+				transition:persist
+			>
+				<Footer className="max-w-screen-lg m-auto" />
+			</div>
+		)
+	}
+</Base>

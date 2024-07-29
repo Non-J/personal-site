@@ -1,0 +1,140 @@
+---
+import { getTranslator } from 'src/i18n/lang';
+
+const t = getTranslator(Astro.currentLocale);
+
+export interface Props {
+	title: string;
+	publication_date?: Date | undefined;
+	update_date?: Date | undefined;
+	toc?: { text: string; depth: number; href: string }[] | undefined;
+}
+const { title, publication_date, update_date, toc } = Astro.props;
+
+/**
+ * Generate HTML string for Table of Content.
+ *
+ * Output may contain reflected HTML element, don't use with untrusted input.
+ */
+const generateToc = (toc: NonNullable<Props['toc']>) => {
+	type TreeNode = (typeof toc)[number] & {
+		parent?: TreeNode;
+		children: TreeNode[];
+	};
+
+	if (toc.length === 0) {
+		return '';
+	}
+
+	/**
+	 * First step is to turn the depth number into an actual tree structure
+	 *
+	 * This is done by iterating the toc array while keeping a pointer to
+	 * a node in the tree and inserting at the pointer. When the depth
+	 * decreases, the pointer moves to its ancestor.
+	 */
+
+	const root: TreeNode = {
+		depth: -1,
+		text: '',
+		href: '',
+		children: [],
+	};
+
+	const firstNode: TreeNode = { ...toc[0]!, parent: root, children: [] };
+	root.children.push(firstNode);
+
+	let treePtr = root.children[0]!;
+
+	for (let i = 1; i < toc.length; i++) {
+		let prev = toc[i - 1]!;
+		let curr = toc[i]!;
+
+		// find how many times treePtr has to move up
+		let ancestor = prev.depth - curr.depth;
+
+		// we cannot go deeper than 1
+		if (ancestor < -1) {
+			throw new Error(
+				`TOC depth increases by more than 1, from ${JSON.stringify(prev)} to ${JSON.stringify(curr)}`,
+			);
+		}
+
+		// going up
+		for (let up = 0; up <= ancestor && treePtr.parent; up++) {
+			treePtr = treePtr.parent;
+		}
+
+		// push new node to children
+		let newNode = { ...curr, parent: treePtr, children: [] };
+		treePtr.children.push(newNode);
+
+		// move treePtr to new node
+		treePtr = treePtr.children[treePtr.children.length - 1]!;
+	}
+
+	/**
+	 * Second step is to generate the HTML element using the tree structure.
+	 */
+
+	const tocRecursiveElement = (node: TreeNode): string => {
+		let recursiveList = '';
+		if (node.children.length > 0) {
+			recursiveList = `
+				<ul class="ml-4">
+					${node.children.map((node) => tocRecursiveElement(node)).join('')}
+				</ul>
+			`;
+		}
+
+		return `
+			<li><a href="${node.href}">${node.text}</a>
+				${recursiveList}
+			</li>
+		`;
+	};
+
+	const tocElement = (root: TreeNode) => {
+		return `
+			<nav>
+				<h2 id="toc-id" class="!mb-0 !text-base !lg:text-lg" >Table of Content</h2>
+				<ul aria-labelledby="toc-id">
+					${root.children.map((node) => tocRecursiveElement(node)).join('')}
+				</ul>
+			</nav>
+		`;
+	};
+
+	return tocElement(root);
+};
+---
+
+<header>
+	<h1>{title}</h1>
+
+	{
+		(publication_date || update_date) && (
+			<p>
+				{publication_date && (
+					<>
+						{t.getText('blog/published_date')}{' '}
+						<time datetime={publication_date.toISOString()}>
+							{t.formatDate(publication_date)}
+						</time>
+					</>
+				)}
+				{publication_date && update_date && ' · '}
+				{update_date && (
+					<>
+						{t.getText('blog/updated_date')}{' '}
+						<time datetime={update_date.toISOString()}>
+							{t.formatDate(update_date)}
+						</time>
+					</>
+				)}
+			</p>
+		)
+	}
+
+	{toc && <Fragment set:html={generateToc(toc)} />}
+</header>
