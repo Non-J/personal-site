@@ -1,0 +1,20 @@
+{
+	"homepage": "homepage",
+
+	"404/not_found": "not found",
+	"404/message": "it's a 404",
+
+	"ui/scroll_top": "go to top",
+
+	"blog/name": "blog // a reader of one",
+	"blog/back_to_posts": "all posts",
+	"blog/not_found_language": "this post isn't available in UwU",
+	"blog/not_found_language_message": "but \"${title}\" is available in English",
+	"blog/not_found_language_redirect": "see this blog post in English",
+	"blog/published_date": "published",
+	"blog/updated_date": "updated",
+
+	"uwu/gift4u": "!pOJKCAbMixFylyqQ19Q3f5l/ReLodqoNKWIBbJDxTW/aHaITLEahZ5RvSfVMCKcYNZr6iqSTAd2PTZsmQSxkKPyadbw+IaAgrmz/OMryY0ZJFEf7wYwCJJT29iPHev3zAyfrIh3D2Uhk6rHDhmYEk8nz17LomhdYmeIVq2wuc4Z9bLQ+l0ITDicZ4+SNolTsWFJxP34UbcejVWY=",
+	"uwu/index_headline": "!g+UDDk7Tzgdply3VnsR4cJp1W+3pMulMJGgGJYb4UDuRB6JEIwq5KMBzQORML6EWNJ22gOLZN8+XBIkmEzBoKLjObvQ0M/UmuCnhOMnzLFZZD0etl4hMMpG34mqJZ/q/WiD/cBSC",
+	"uwu/index_text_1": "!vqoHXQ/I2Ao6n3nWy9VlZ84uAQ=="
+}

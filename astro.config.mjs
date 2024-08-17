@@ -18,10 +18,11 @@ export default defineConfig({
 	},
 	i18n: {
 		defaultLocale: 'en',
-		locales: ['en', 'th', 'ko'],
+		locales: ['en', 'th', 'ko', 'ww'],
 		fallback: {
 			th: 'en',
 			ko: 'en',
+			ww: 'en',
 		},
 	},
 	integrations: [

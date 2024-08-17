@@ -8,6 +8,7 @@ const Button: Component<{
 	noWrap?: string;
 	highlightedColor?: boolean;
 	disabled?: boolean;
+	[k: string]: any;
 }> = ({
 	href,
 	onClick,
@@ -16,6 +17,7 @@ const Button: Component<{
 	noWrap = true,
 	highlightedColor = false,
 	disabled = false,
+	...rest
 }) => {
 	let finalClass =
 		'select-none overflow-hidden rounded-full py-4 text-center transition duration-200';
@@ -47,11 +49,21 @@ const Button: Component<{
 	}
 
 	return onClick ? (
-		<button class={finalClass} onClick={onClick} disabled={disabled}>
+		<button
+			class={finalClass}
+			onClick={onClick}
+			disabled={disabled}
+			{ ...rest }
+		>
 			{text}
 		</button>
 	) : (
-		<a class={finalClass} href={href ?? '#'} aria-disabled={disabled}>
+		<a
+			class={finalClass}
+			href={href ?? '#'}
+			aria-disabled={disabled}
+			{ ...rest }
+		>
 			{text}
 		</a>
 	);

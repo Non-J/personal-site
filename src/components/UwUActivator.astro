@@ -1,0 +1,99 @@
+---
+/**
+ * A button that shows up when certain conditions are met
+ */
+
+import { Button } from 'src/components/Button';
+import { getTranslator } from 'src/i18n/lang';
+
+const t = getTranslator(Astro.currentLocale);
+const url = t.getRouteToLocale(Astro.url.pathname, 'ww');
+---
+
+<script>
+	const activateKeys = [
+		'ArrowUp',
+		'ArrowUp',
+		'ArrowDown',
+		'ArrowDown',
+		'ArrowLeft',
+		'ArrowRight',
+		'ArrowLeft',
+		'ArrowRight',
+	];
+
+	class UwUActivatorElement extends HTMLElement {
+		// Whether the element is activated
+		#activated = false;
+		// Store the target element
+		#target: Element = undefined!;
+		// Track progress of key presses
+		#keyPressed: string[] = [];
+		// Bind this to event listener
+		#keyEventListenerBind: (event: KeyboardEvent) => void;
+
+		constructor() {
+			super();
+
+			this.#keyEventListenerBind = this.#keyEventListener.bind(this);
+		}
+
+		connectedCallback() {
+			this.#target = this.querySelector('#uwuActivate')!;
+			this.#toggleActivated(false);
+			document.addEventListener('keydown', this.#keyEventListenerBind);
+		}
+
+		disconnectedCallback() {
+			document.removeEventListener('keydown', this.#keyEventListenerBind);
+		}
+
+		#keyEventListener(event: KeyboardEvent) {
+			if (this.#activated) {
+				document.removeEventListener('keydown', this.#keyEventListenerBind);
+				return;
+			}
+
+			this.#keyPressed = [
+				...this.#keyPressed.slice(
+					this.#keyPressed.length === activateKeys.length ? 1 : 0,
+				),
+				event.key,
+			];
+
+			if (this.#keyPressed.length !== activateKeys.length) {
+				return;
+			}
+
+			for (let i = 0; i < this.#keyPressed.length; i++) {
+				if (this.#keyPressed[i] !== activateKeys[i]) return;
+			}
+
+			this.#toggleActivated(true);
+		}
+
+		#toggleActivated(state: boolean) {
+			if (state && !this.#activated) {
+				this.#target.classList.remove('hidden', 'opacity-0');
+				this.#target.classList.add('block', 'opacity-1');
+			} else if (!state && this.#activated) {
+				this.#target.classList.add('hidden', 'opacity-0');
+				this.#target.classList.remove('block', 'opacity-1');
+			}
+			this.#activated = state;
+		}
+	}
+
+	customElements.define('uwu-activator', UwUActivatorElement);
+</script>
+
+<uwu-activator>
+	<Button
+		id="uwuActivate"
+		href={url}
+		text="uwu?"
+		highlightedColor={true}
+		className="hidden w-full select-none opacity-0"
+		tabindex="-1"
+	/>
+</uwu-activator>

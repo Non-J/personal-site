@@ -1,14 +1,17 @@
 import TranslationEN from './en.json';
 import TranslationTH from './th.json';
 import TranslationKO from './ko.json';
+import TranslationWW from './ww.json';
 
 import type { AstroGlobal } from 'astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
+import { readTranslationMap } from 'src/utils/uwulingo';
 
 export const languages = {
 	en: 'English',
 	th: 'ไทย',
 	ko: '한국어',
+	ww: 'UwU',
 };
 
 export const defaultLocale = 'en';
@@ -48,11 +51,11 @@ interface Translator {
 	 * @param variables The mappings of template name to the substitution value
 	 */
 	getText(
-		label: keyof TranslationMap,
+		label: keyof TranslationMap | keyof typeof TranslationWW,
 		variables?: Record<string, string>,
 	): string;
 	getRoute(path: string): string;
-	getRouteToDefaultLocale(path: string): string;
+	getRouteToLocale(path: string, locale?: Language): string;
 
 	/**
 	 * Format date to local format. Don't do time or timezone, only date.
@@ -79,13 +82,27 @@ export function getTranslator(lang: AstroCurrentLocale): Translator {
 		case 'th':
 			map = TranslationTH;
 			break;
+		case 'ww':
+			map = TranslationWW;
+			break;
 	}
 
 	return {
 		currentLocale,
 
-		getRouteToDefaultLocale: (path: string) => {
-			return getRelativeLocaleUrl(defaultLocale, path);
+		getRouteToLocale: (path: string, locale: Language = defaultLocale) => {
+			let localeFreePath = `${path}`;
+			const locales = Object.keys(languages);
+			locales.forEach((l) => {
+				const prefix = `/${l}`;
+				if (localeFreePath.startsWith(prefix)) {
+					localeFreePath = localeFreePath.slice(prefix.length);
+				}
+			});
+
+			return locale === defaultLocale
+				? localeFreePath
+				: `/${locale}${localeFreePath}`;
 		},
 
 		getRoute: (path: string) => {
@@ -96,14 +113,18 @@ export function getTranslator(lang: AstroCurrentLocale): Translator {
 			label: keyof TranslationMap,
 			variables?: Record<string, string>,
 		) => {
-			if (!variables) {
-				return map[label];
+			let result = map[label];
+
+			if (currentLocale === 'ww' && result.length > 0 && result[0] === '!') {
+				result = readTranslationMap(result.slice(1));
 			}
 
-			let result = map[label];
-			for (let [name, val] of Object.entries(variables)) {
-				result = result.replaceAll('${' + name + '}', val);
+			if (variables !== undefined) {
+				for (let [name, val] of Object.entries(variables)) {
+					result = result.replaceAll('${' + name + '}', val);
+				}
 			}
+
 			return result;
 		},
 

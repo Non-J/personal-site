@@ -1,7 +1,8 @@
 ---
 import Main from 'src/layouts/Main.astro';
-import { Button } from '../components/Button';
+import { Button } from 'src/components/Button';
 import { getTranslator } from 'src/i18n/lang';
+import UwUActivator from 'src/components/UwUActivator.astro';
 
 const t = getTranslator(Astro.currentLocale);
 ---
@@ -18,9 +19,9 @@ const t = getTranslator(Astro.currentLocale);
 	<figure>
 		<figcaption>Languages</figcaption>
 		<ul class="list-inside list-disc">
-			<li>🇬🇧 English</li>
-			<li>🇹🇭 Thai/ไทย</li>
-			<li>🇰🇷 Korean/한국어</li>
+			<li><span class="text-white text-opacity-100">🇬🇧</span> English</li>
+			<li><span class="text-white text-opacity-100">🇹🇭</span> Thai/ไทย</li>
+			<li><span class="text-white text-opacity-100">🇰🇷</span> Korean/한국어</li>
 		</ul>
 	</figure>
 
@@ -34,6 +35,9 @@ const t = getTranslator(Astro.currentLocale);
 		<Button href="https://www.github.com/Non-J" text="GitHub" />
 		<Button href="https://www.facebook.com/jirawut.thongraar" text="Facebook" />
 		<Button href="https://www.instagram.com/nnon_jt" text="Instagram" />
+		<Button href="https://www.threads.net/@nnon_jt" text="Threads" />
+		<Button href="https://infosec.exchange/@no_n1e" text="Mastodon" rel="me" />
 		<Button href="https://dn.kakao.com" text="Kakao (ID: jirawut)" />
+		<UwUActivator />
 	</div>
 </Main>

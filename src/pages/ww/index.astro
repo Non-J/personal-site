@@ -1,0 +1,49 @@
+---
+import Main from 'src/layouts/Main.astro';
+import { Button } from 'src/components/Button';
+import { getTranslator } from 'src/i18n/lang';
+
+const t = getTranslator(Astro.currentLocale);
+---
+
+<Main title="Non's Homepage :3">
+	<h1 class="text-center">Non</h1>
+
+	<p class="text-neutral-100 text-opacity-90">
+		<span class="text-white text-opacity-100">⚠</span>
+		{t.getText('uwu/index_headline')}
+		<span class="text-white text-opacity-100">⚠</span>
+		<br />
+	</p>
+
+	<p>
+		a recovering(?) internet addict. i spend my time on nerdy/geeky stuff,
+		occasionally watch anime, and play video games. i main Rust and TypeScript. <s
+			class="text-neutral-100 text-opacity-50"
+			>{t.getText('uwu/index_text_1')}</s
+		>
+	</p>
+
+	<div class="flex flex-col gap-3">
+		<Button
+			href={t.getRoute('/blog')}
+			text="Blog (coming soon for the past 5 years)"
+			disabled
+		/>
+		<Button
+			href="https://infosec.exchange/@no_n1e"
+			text="Mastodon - infosec.exchange"
+			rel="me"
+		/>
+		<Button
+			href="https://mstdn.social/@no_n1e"
+			text="Mastodon - mstdn.social (trash post account)"
+			rel="me"
+		/>
+		<Button
+			href="mailto:hello.UwU@jirawut.com"
+			text="Email (hello.UwU@jirawut.com)"
+		/>
+		<Button href="https://www.github.com/Non-J" text="GitHub" />
+	</div>
+</Main>

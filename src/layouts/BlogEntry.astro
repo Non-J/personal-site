@@ -69,7 +69,7 @@ const t = getTranslator(Astro.currentLocale);
 					<NavLink
 						className="mt-8 block text-lg"
 						text={t.getText('blog/not_found_language_redirect')}
-						href={t.getRouteToDefaultLocale('blog/' + post.slug)}
+						href={t.getRouteToLocale('blog/' + post.slug)}
 					/>
 				</div>
 			</main>
