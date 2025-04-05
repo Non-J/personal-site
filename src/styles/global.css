@@ -1,0 +1,12 @@
+@import "tailwindcss" source("../../src/");
+
+@theme {
+	--breakpoint-*: initial;
+  --breakpoint-md: 640px;
+  --breakpoint-lg: 1024px;
+
+  --font-sans: "Lexend", "Anakotmai", "NanumGothic", "Twemoji Mozilla", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-weight-light: 200;
+	--font-weight-normal: 500;
+	--font-weight-bold: 700;
+}

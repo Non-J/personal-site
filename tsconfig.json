@@ -1,13 +1,15 @@
 {
 	"extends": "astro/tsconfigs/strictest",
 	"compilerOptions": {
-		// Solid specific settings
-		"jsx": "preserve",
-		"jsxImportSource": "solid-js",
 		// Add alias for assets folder for easy reference to assets
 		"baseUrl": ".",
 		"paths": {
-			"~/assets/*": ["src/assets/*"]
+			"~/assets/*": ["src/assets/*"],
+			"@components/*": ["src/components/*"],
+			"@i18n/*": ["src/i18n/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@styles/*": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"]
 		},
 	}
 }
