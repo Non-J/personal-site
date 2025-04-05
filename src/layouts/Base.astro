@@ -1,5 +1,5 @@
 ---
-import '@styles/font.scss';
+import '@styles/font.css';
 import '@styles/global.css'
 import type { Language } from '@i18n/lang';
 
@@ -24,7 +24,7 @@ const { title, lang = Astro.currentLocale, className } = Astro.props;
 		<slot name="head" />
 	</head>
 	<body
-		class={'font-normal bg-slate-900 text-neutral-100 text-opacity-80' +
+		class={'font-normal bg-slate-900 text-neutral-100/80' +
 			(className ? ` ${className}` : '')}
 	>
 		<slot />

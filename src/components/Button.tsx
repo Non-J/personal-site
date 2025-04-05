@@ -1,4 +1,8 @@
-import type { Component, JSX } from 'solid-js';
+// @ts-nocheck
+
+// TODO: Migrate away from solid-js
+
+import type { JSX, Component } from 'solid-js';
 
 const Button: Component<{
 	href?: string;
@@ -29,18 +33,18 @@ const Button: Component<{
 	if (!disabled) {
 		if (highlightedColor) {
 			finalClass +=
-				' bg-rose-700 hover:bg-rose-900 text-neutral-100 text-opacity-90';
+				' bg-rose-700 hover:bg-rose-900 text-neutral-100/90';
 		} else {
 			finalClass +=
-				' bg-indigo-700 hover:bg-indigo-800 text-neutral-100 text-opacity-90';
+				' bg-indigo-700 hover:bg-indigo-800 text-neutral-100/90';
 		}
 	} else {
 		if (highlightedColor) {
 			finalClass +=
-				' pointer-events-none cursor-default bg-rose-900 text-neutral-100 text-opacity-50';
+				' pointer-events-none cursor-default bg-rose-900 text-neutral-100/50';
 		} else {
 			finalClass +=
-				' pointer-events-none cursor-default bg-indigo-900 text-neutral-100 text-opacity-50';
+				' pointer-events-none cursor-default bg-indigo-900 text-neutral-100/50';
 		}
 	}
 

@@ -10,7 +10,7 @@ const { text, href, className, noWrap = true, decoration = true } = Astro.props;
 ---
 
 <a
-	class={'underline text-red-200 text-opacity-90 w-max' +
+	class={'underline text-red-200/90 w-max' +
 		(noWrap ? ' whitespace-nowrap' : '') +
 		(className ? ` ${className}` : '')}
 	href={href}>{decoration ? `[ ${text} ]` : text}</a

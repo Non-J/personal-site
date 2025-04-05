@@ -1,5 +1,4 @@
 ---
-import 'src/styles/main-design.scss';
 import type {
 	TransitionAnimationPair,
 	TransitionDirectionalAnimations,
@@ -8,6 +7,7 @@ import { ViewTransitions } from 'astro:transitions';
 import Base from 'src/layouts/Base.astro';
 import Header from 'src/components/Header.astro';
 import Footer from 'src/components/Footer.astro';
+import 'src/styles/main-design.css';
 
 function fadeInOut(): TransitionDirectionalAnimations {
 	const anim = {

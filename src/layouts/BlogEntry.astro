@@ -3,15 +3,15 @@
  * Entry for each blog post
  */
 
-import 'src/styles/font.scss';
+import 'src/styles/font.css';
 import Base from './Base.astro';
-import ViewTransitions from 'astro/components/ViewTransitions.astro';
 import Main from 'src/layouts/Main.astro';
 import NavLink from 'src/components/NavLink.astro';
 import ScrollToTop from 'src/components/ScrollToTop.astro';
 import ArticleIntro from 'src/components/ArticleIntro.astro';
 import type { BlogPostStaticPathType } from 'src/utils/blogStaticPaths';
 import { getTranslator } from 'src/i18n/lang';
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props extends BlogPostStaticPathType {}
 const { should_render_post, post } = Astro.props;
@@ -58,7 +58,7 @@ const t = getTranslator(Astro.currentLocale);
 
 			<main>
 				<div class="flex min-h-screen flex-col items-center justify-center text-center">
-					<h1 class="text-4xl text-neutral-100 text-opacity-90">
+					<h1 class="text-4xl text-neutral-100/90">
 						{t.getText('blog/not_found_language')}
 					</h1>
 					<p class="mt-2 text-lg">

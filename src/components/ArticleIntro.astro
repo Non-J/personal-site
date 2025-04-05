@@ -97,7 +97,7 @@ const generateToc = (toc: NonNullable<Props['toc']>) => {
 	const tocElement = (root: TreeNode) => {
 		return `
 			<nav>
-				<h2 id="toc-id" class="!mb-0 !text-base !lg:text-lg" >Table of Content</h2>
+				<h2 id="toc-id" class="mb-0! text-base! lg:text-lg!" >Table of Content</h2>
 				<ul aria-labelledby="toc-id">
 					${root.children.map((node) => tocRecursiveElement(node)).join('')}
 				</ul>

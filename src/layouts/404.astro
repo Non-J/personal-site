@@ -1,5 +1,5 @@
 ---
-import 'src/styles/font.scss';
+import 'src/styles/font.css';
 import Base from 'src/layouts/Base.astro';
 import NavLink from 'src/components/NavLink.astro';
 import { getTranslator } from 'src/i18n/lang';
@@ -12,7 +12,7 @@ const t = getTranslator(Astro.currentLocale);
 		<div
 			class="flex min-h-screen flex-col items-center justify-center text-center"
 		>
-			<h1 class="text-4xl text-neutral-100 text-opacity-90">
+			<h1 class="text-4xl text-neutral-100/90">
 				{t.getText('404/not_found')}
 			</h1>
 			<p class="mt-2 text-lg">

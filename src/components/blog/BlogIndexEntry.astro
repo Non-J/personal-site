@@ -30,10 +30,10 @@ const routeForPost = (() => {
 
 <a
 	href={routeForPost}
-	class="overflow-hidden rounded-md bg-indigo-800 p-4 ring-0 ring-indigo-900 ring-opacity-50 transition duration-200 hover:bg-indigo-900 hover:ring-4"
+	class="overflow-hidden rounded-md bg-indigo-800 p-4 ring-0 ring-indigo-900/50 transition duration-200 hover:bg-indigo-900 hover:ring-4"
 >
 	<h2 class="text-2xl">{post.data.title}</h2>
-	<p class="text-neutral-100 text-opacity-5">{post.data.tagline}</p>
+	<p class="text-neutral-100/5">{post.data.tagline}</p>
 	<div class="pills-container">
 		<p>{t.formatDate(post.data.publication_date)}</p>
 		{post.data.tags?.map((tag) => <p class="pill">#{tag}</p>)}

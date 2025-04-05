@@ -1,0 +1,84 @@
+@reference "./global.css";
+
+.content {
+	h1 {
+		@apply text-3xl text-neutral-100/90 md:text-4xl lg:text-5xl;
+	}
+
+	h2 {
+		@apply text-2xl text-neutral-100/90 md:text-3xl lg:text-4xl;
+	}
+
+	h3 {
+		@apply text-xl text-neutral-100/90 md:text-2xl lg:text-3xl;
+	}
+
+	h4 {
+		@apply text-lg text-neutral-100/90 md:text-xl lg:text-2xl;
+	}
+
+	h5 {
+		@apply text-base text-neutral-100/90 md:text-lg lg:text-xl;
+	}
+
+	h6 {
+		@apply text-base text-neutral-100/90 lg:text-lg;
+	}
+
+	h1:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	h2:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	h3:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	h4:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	h5:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	h6:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	p:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	header:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	ul:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	ol:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	figure:not(:last-child) {
+		@apply mb-4 md:mb-6;
+	}
+
+	ul,
+	ol {
+		@apply list-inside;
+	}
+
+	ul {
+		@apply list-disc;
+	}
+
+	ol {
+		@apply list-decimal;
+	}
+}

@@ -1,16 +1,67 @@
 /* Static English Font */
-@mixin lexend-weight($weight) {
+@supports not (font-variation-settings: normal) {
 	@font-face {
 		font-family: 'Lexend';
 		font-style: normal;
 		font-display: swap;
-		src: url('/assets/fonts/lexend-#{$weight}.ttf') format('truetype');
-		font-weight: $weight;
+		src: url('/assets/fonts/lexend-100.ttf') format('truetype');
+		font-weight: 100;
 	}
-}
-@supports not (font-variation-settings: normal) {
-	@for $i from 1 through 9 {
-		@include lexend-weight($i * 100);
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-200.ttf') format('truetype');
+		font-weight: 200;
+	}
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-300.ttf') format('truetype');
+		font-weight: 300;
+	}
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-400.ttf') format('truetype');
+		font-weight: 400;
+	}
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-500.ttf') format('truetype');
+		font-weight: 500;
+	}
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-600.ttf') format('truetype');
+		font-weight: 600;
+	}
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-700.ttf') format('truetype');
+		font-weight: 700;
+	}
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-800.ttf') format('truetype');
+		font-weight: 800;
+	}
+	@font-face {
+		font-family: 'Lexend';
+		font-style: normal;
+		font-display: swap;
+		src: url('/assets/fonts/lexend-900.ttf') format('truetype');
+		font-weight: 900;
 	}
 }
 
@@ -21,7 +72,8 @@
 		font-style: normal;
 		font-weight: 100 900;
 		font-display: swap;
-		src: url('/assets/fonts/lexend.woff2') format('woff2'),
+		src:
+			url('/assets/fonts/lexend.woff2') format('woff2'),
 			url('/assets/fonts/lexend.ttf') format('truetype');
 	}
 }
@@ -32,7 +84,8 @@
 	font-style: normal;
 	font-weight: 200;
 	font-display: swap;
-	src: url('/assets/fonts/Anakotmai-Light.woff2') format('woff2'),
+	src:
+		url('/assets/fonts/Anakotmai-Light.woff2') format('woff2'),
 		url('/assets/fonts/Anakotmai-Light.ttf') format('truetype');
 	unicode-range: U+000D, U+0020, U+00A0, U+0E01-0E3A, U+0E3F-0E5B;
 }
@@ -41,7 +94,8 @@
 	font-style: normal;
 	font-weight: 500;
 	font-display: swap;
-	src: url('/assets/fonts/Anakotmai-Medium.woff2') format('woff2'),
+	src:
+		url('/assets/fonts/Anakotmai-Medium.woff2') format('woff2'),
 		url('/assets/fonts/Anakotmai-Medium.ttf') format('truetype');
 	unicode-range: U+000D, U+0020, U+00A0, U+0E01-0E3A, U+0E3F-0E5B;
 }
@@ -50,7 +104,8 @@
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url('/assets/fonts/Anakotmai-Bold.woff2') format('woff2'),
+	src:
+		url('/assets/fonts/Anakotmai-Bold.woff2') format('woff2'),
 		url('/assets/fonts/Anakotmai-Bold.ttf') format('truetype');
 	unicode-range: U+000D, U+0020, U+00A0, U+0E01-0E3A, U+0E3F-0E5B;
 }
@@ -62,7 +117,8 @@
 	font-style: normal;
 	font-weight: 200;
 	font-display: swap;
-	src: url('/assets/fonts/NanumGothic-Regular.woff2') format('woff2'),
+	src:
+		url('/assets/fonts/NanumGothic-Regular.woff2') format('woff2'),
 		url('/assets/fonts/NanumGothic-Regular.ttf') format('truetype');
 	unicode-range: U+000D, U+0020, U+00A0, U+AC00-D7AF;
 }
@@ -71,7 +127,8 @@
 	font-style: normal;
 	font-weight: 500;
 	font-display: swap;
-	src: url('/assets/fonts/NanumGothic-Bold.woff2') format('woff2'),
+	src:
+		url('/assets/fonts/NanumGothic-Bold.woff2') format('woff2'),
 		url('/assets/fonts/NanumGothic-Bold.ttf') format('truetype');
 	unicode-range: U+000D, U+0020, U+00A0, U+AC00-D7AF;
 }
@@ -80,7 +137,8 @@
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url('/assets/fonts/NanumGothic-ExtraBold.woff2') format('woff2'),
+	src:
+		url('/assets/fonts/NanumGothic-ExtraBold.woff2') format('woff2'),
 		url('/assets/fonts/NanumGothic-ExtraBold.ttf') format('truetype');
 	unicode-range: U+000D, U+0020, U+00A0, U+AC00-D7AF;
 }
@@ -90,7 +148,8 @@
 	font-family: 'Twemoji Mozilla';
 	unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067,
 		U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007F;
-	src: url('/assets/fonts/twemoji.woff2') format('woff2'),
+	src:
+		url('/assets/fonts/twemoji.woff2') format('woff2'),
 		url('/assets/fonts/twemoji.ttf') format('truetype');
 	font-display: swap;
 }

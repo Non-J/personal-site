@@ -9,6 +9,5 @@
 	"[astro]": {
 		"editor.defaultFormatter": "astro-build.astro-vscode"
 	},
-	"scss.lint.unknownAtRules": "ignore",
 	"css.lint.unknownAtRules": "ignore"
 }
